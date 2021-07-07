@@ -13,7 +13,7 @@ class TrailsContainer extends Component {
     render() {
         const { error, isLoaded, trails } = this.props;
         if (error) {
-            return <div className='error'>Error: {error.message}</div>;
+            return <div className='error'>{error.message}... Please wait while the server boots up.</div>;
         } else if (!isLoaded) {
             return <div className='on-load'>Loading...</div>;
         } else {
