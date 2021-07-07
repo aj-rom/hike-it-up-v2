@@ -8,6 +8,5 @@ export const fetchTrails = () => {
             .then(resp => { return resp.json() })
             .then(json => dispatch({ type: 'FETCH_TRAILS', trails: json.data }))
             .catch(error => dispatch({ type: 'ERROR', error: error }))
-
     }
 }
