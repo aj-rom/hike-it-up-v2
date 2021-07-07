@@ -3,6 +3,7 @@ import React from 'react'
 const Trail = (props) => {
 
     const { trail } = props
+    console.log(trail)
     return (
         <article id='trail'>
             <header>
@@ -11,8 +12,8 @@ const Trail = (props) => {
             <p>{trail.description}</p>
             <aside>
                 <ul>
-                    <li>{trail.open_hour} AM</li>
-                    <li>{trail.close_hour} PM</li>
+                    <li>{trail.hour_open} AM</li>
+                    <li>{trail.hour_close} PM</li>
                 </ul>
             </aside>
         </article>
