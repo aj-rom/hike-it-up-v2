@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Trail() {
-    const { trail } = this.props
+const Trail = (props) => {
 
+    const { trail } = props
     return (
         <article id='trail'>
             <header>
@@ -18,3 +18,5 @@ export default function Trail() {
         </article>
     )
 }
+
+export default Trail
