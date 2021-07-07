@@ -1,24 +1,17 @@
 import React, { Component } from 'react'
-import { BACKEND_URL } from "../shared/constants";
 import Trail from "../components/Trail";
 
-export default class TrailsContainer extends Component {
+import { connect } from 'react-redux'
+import {addTrail, deleteTrail, fetchTrails} from "../actions/trailActions";
 
-    state = {
-        trails: [],
-        error: null,
-        isLoaded: false
-    }
+class TrailsContainer extends Component {
 
     componentDidMount() {
-        fetch(BACKEND_URL + 'trails')
-            .then(resp => resp.json())
-            .then(e => this.setState({ trails: e.trails, isLoaded: true }))
-            .catch(e => this.setState({ isLoaded: false, error: e }))
+        this.props.fetchTrails()
     }
 
     render() {
-        const { error, isLoaded, trails } = this.state;
+        const { error, isLoaded, trails } = this.props;
         if (error) {
             return <div className='error'>Error: {error.message}</div>;
         } else if (!isLoaded) {
@@ -26,9 +19,14 @@ export default class TrailsContainer extends Component {
         } else {
             return (
                 <div className='trails'>
-                    {trails.map(e => (<Trail key={e.id} trail={e}/>))}
+                    {trails.map(e => (<Trail key={e.id} trail={e.attributes} user={e.relationships.user}/>))}
                 </div>
             );
         }
     }
 }
+
+const mapStateToProps = ({ trails, isLoaded, error }) => ({ trails, isLoaded, error })
+
+export default connect( mapStateToProps, ({ addTrail, deleteTrail, fetchTrails }))(TrailsContainer)
+
