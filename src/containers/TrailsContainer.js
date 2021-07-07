@@ -20,9 +20,10 @@ class TrailsContainer extends Component {
         } else {
             return (
                 <React.Fragment>
-                    <br/>
-                    <TrailInput createTrail={this.props.createTrail}/>
-                    <div className='trails'>
+                    <section>
+                        <TrailInput createTrail={this.props.createTrail}/>
+                    </section>
+                    <section className='trails'>
                         {trails.map(e => (
                             <Trail
                                 key={e.id}
@@ -30,7 +31,7 @@ class TrailsContainer extends Component {
                                 user={e.user_id}
                             />
                         ))}
-                    </div>
+                    </section>
                 </React.Fragment>
             );
         }
