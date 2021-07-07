@@ -13,8 +13,8 @@ class Trail < ApplicationRecord
   validates_numericality_of :hour_open, :hour_close
 
   # Validate range of hours
-  validates :hour_open, minimum: 1, maximum: 12
-  validates :hour_close, minimum: 1, maximum: 12
+  validates_inclusion_of :hour_open, in: 1..12
+  validates_inclusion_of :hour_close, in: 1..12
 
   # Validate length of name & description
   validates_length_of :name, maximum: 100, minimum: 3
