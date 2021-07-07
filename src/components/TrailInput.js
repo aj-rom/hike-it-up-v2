@@ -40,6 +40,8 @@ export default class TrailInput extends Component {
                                onChange={e => this.handleChange(e)}
                                value={this.state.name}
                                required={true}
+                               max={100}
+                               min={3}
                         />
                     </label>
 
@@ -50,6 +52,8 @@ export default class TrailInput extends Component {
                                onChange={e => this.handleChange(e)}
                                value={this.state.description}
                                required={true}
+                               max={300}
+                               min={15}
                         />
                     </label>
 
