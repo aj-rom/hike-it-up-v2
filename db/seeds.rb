@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# user = User.create(name: 'ayo', email: 'ayo@gmail.com', password: 'Testing', password_confirmation: 'Testing')
+#
+# user.trails.build(name: 'Test Trail #1', description: 'Test trail #1 description').save
+
+User.first.trails.build(name: 'Test Trail #2', description: 'Test Trail #2 description').save
