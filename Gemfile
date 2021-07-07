@@ -10,7 +10,6 @@ gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 
-# Handles API Response
 gem 'fast_jsonapi'
 
 # User Authentication via Devise with OmniAuth
