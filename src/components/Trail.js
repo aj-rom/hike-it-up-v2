@@ -3,9 +3,8 @@ import React from 'react'
 const Trail = (props) => {
 
     const { trail } = props
-    console.log(trail)
     return (
-        <article id='trail'>
+        <article className='trail-card'>
             <header>
                 <h4>{trail.name}</h4>
             </header>

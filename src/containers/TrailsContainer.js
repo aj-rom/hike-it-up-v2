@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import Trail from "../components/Trail";
 
 import { connect } from 'react-redux'
-import {addTrail, deleteTrail, fetchTrails} from "../actions/trailActions";
+import {addTrail, createTrail, deleteTrail, fetchTrails} from "../actions/trailActions";
+import TrailInput from "../components/TrailInput";
 
 class TrailsContainer extends Component {
 
@@ -13,14 +14,24 @@ class TrailsContainer extends Component {
     render() {
         const { error, isLoaded, trails } = this.props;
         if (error) {
-            return <div className='error'>{error.message}... Please wait while the server boots up.</div>;
+            return <div className='error'>{error.message}...</div>;
         } else if (!isLoaded) {
             return <div className='on-load'>Loading...</div>;
         } else {
             return (
-                <div className='trails'>
-                    {trails.map(e => (<Trail key={e.id} trail={e.attributes} user={e.relationships.user}/>))}
-                </div>
+                <React.Fragment>
+                    <br/>
+                    <TrailInput createTrail={this.props.createTrail}/>
+                    <div className='trails'>
+                        {trails.map(e => (
+                            <Trail
+                                key={e.id}
+                                trail={e}
+                                user={e.user_id}
+                            />
+                        ))}
+                    </div>
+                </React.Fragment>
             );
         }
     }
@@ -28,5 +39,5 @@ class TrailsContainer extends Component {
 
 const mapStateToProps = ({ trails, isLoaded, error }) => ({ trails, isLoaded, error })
 
-export default connect( mapStateToProps, ({ addTrail, deleteTrail, fetchTrails }))(TrailsContainer)
+export default connect( mapStateToProps, ({ addTrail, deleteTrail, fetchTrails, createTrail }))(TrailsContainer)
 
