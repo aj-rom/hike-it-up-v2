@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import TrailsContainer from "./containers/TrailsContainer";
+import About from "./components/static/About";
+import Home from "./components/static/Home";
 
 export default function App() {
     return (
@@ -36,10 +38,3 @@ export default function App() {
     );
 }
 
-function Home() {
-    return <h2>Home</h2>;
-}
-
-function About() {
-    return <h2>About</h2>;
-}
