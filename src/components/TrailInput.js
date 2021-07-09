@@ -24,7 +24,7 @@ export default class TrailInput extends Component {
     handleSubmit = e => {
         e.preventDefault()
         this.props.createTrail(this.state)
-            .then(e => this.setState( defaultState))
+            .then(e => this.setState( defaultState) )
     }
 
     render() {
@@ -66,7 +66,7 @@ export default class TrailInput extends Component {
                                 name='open_at'
                                 type='time'
                                 onChange={e => this.handleChange(e)}
-                                value={this.state.hour_open}
+                                value={this.state.open_at}
                                 required={true}
                             />
                         </label>
@@ -77,7 +77,7 @@ export default class TrailInput extends Component {
                                 name='close_at'
                                 type='time'
                                 onChange={e => this.handleChange(e)}
-                                value={this.state.hour_close}
+                                value={this.state.close_at}
                                 required={true}
                             />
                         </label>
@@ -85,6 +85,7 @@ export default class TrailInput extends Component {
                         <label>
                             Images
                             <input type='file'
+                                   accept=".png,.jpg,.gif"
                                    name='images'
                                    onChange={e => this.handleChange(e)}
                                    value={this.state.images}
