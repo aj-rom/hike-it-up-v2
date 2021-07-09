@@ -13,7 +13,7 @@ class TrailsController < ApplicationController
 
   def create
     trail = Trail.create(trail_params)
-    if trail
+    if trail.id
       redirect_to trail_path(trail)
     else
       render json: trail.errors.full_messages
