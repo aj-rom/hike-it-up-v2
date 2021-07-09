@@ -1,5 +1,4 @@
 class TrailsController < ApplicationController
-  before_action
 
   def index
     trails = Trail.all
@@ -15,8 +14,6 @@ class TrailsController < ApplicationController
   def create
     trail = Trail.create(trail_params)
     if trail
-      puts 'Created...'
-      puts trail.attributes
       redirect_to trail_path(trail)
     else
       render json: trail.errors.full_messages
@@ -30,9 +27,7 @@ class TrailsController < ApplicationController
   private
 
   def trail_params
-    puts "Trail Params"
-    puts params[:trail]
-    params.require(:trail).permit(:name, :description, :hour_open, :hour_close, :images, :user_id)
+    params.require(:trail).permit(:name, :description, :open_at, :close_at, :images, :user_id)
   end
 
 end

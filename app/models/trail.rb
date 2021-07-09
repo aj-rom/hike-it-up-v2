@@ -7,14 +7,7 @@ class Trail < ApplicationRecord
   belongs_to :user
 
   # Check for presence of attributes
-  validates_presence_of :name, :description, :hour_open, :hour_close
-
-  # Validate numericality of hours
-  validates_numericality_of :hour_open, :hour_close
-
-  # Validate range of hours
-  validates_inclusion_of :hour_open, in: 1..12
-  validates_inclusion_of :hour_close, in: 1..12
+  validates_presence_of :name, :description, :open_at, :close_at
 
   # Validate length of name & description
   validates_length_of :name, maximum: 100, minimum: 3
