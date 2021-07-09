@@ -20,8 +20,15 @@ class TrailsContainer extends Component {
         } else {
             return (
                 <React.Fragment>
+                    <hgroup>
+                        <h2>All Trails</h2>
+                        <h4>View and Search all Trails</h4>
+                    </hgroup>
                     <section>
                         <TrailInput createTrail={this.props.createTrail}/>
+                    </section>
+                    <section>
+                        {/*  Implement Search Feature  */}
                     </section>
                     <section className='trails'>
                         {trails.map(e => (
