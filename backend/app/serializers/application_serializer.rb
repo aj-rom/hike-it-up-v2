@@ -32,5 +32,12 @@ class ApplicationSerializer
     def has_many(resources, options = {})
       has_(resources, options)
     end
+
+    def convert_time(time_string)
+      time = time_string.split(':')
+      return "#{time_string} AM" if time.first.to_i <= 12
+
+      "#{time.first.to_i - 12}:#{time.last} PM"
+    end
   end
 end

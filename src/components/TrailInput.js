@@ -4,8 +4,8 @@ const defaultState = {
     user_id: 1,
     name: '',
     description: '',
-    hour_open: '',
-    hour_close: '',
+    open_at: '',
+    close_at: '',
     images: []
 }
 
@@ -63,10 +63,8 @@ export default class TrailInput extends Component {
                         <label>
                             Open Time
                             <input
-                                name='hour_open'
-                                type='number'
-                                max={12}
-                                min={1}
+                                name='open_at'
+                                type='time'
                                 onChange={e => this.handleChange(e)}
                                 value={this.state.hour_open}
                                 required={true}
@@ -76,10 +74,8 @@ export default class TrailInput extends Component {
                         <label>
                             Close Time
                             <input
-                                name='hour_close'
-                                type='number'
-                                max={12}
-                                min={1}
+                                name='close_at'
+                                type='time'
                                 onChange={e => this.handleChange(e)}
                                 value={this.state.hour_close}
                                 required={true}

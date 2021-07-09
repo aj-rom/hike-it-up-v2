@@ -7,14 +7,9 @@ const Trail = (props) => {
         <article className='trail-card'>
             <header>
                 <h4>{trail.name}</h4>
+                <h5>Open {trail.open_at} - {trail.close_at} </h5>
             </header>
             <p>{trail.description}</p>
-            <aside>
-                <ul>
-                    <li>{trail.hour_open} AM</li>
-                    <li>{trail.hour_close} PM</li>
-                </ul>
-            </aside>
         </article>
     )
 }
