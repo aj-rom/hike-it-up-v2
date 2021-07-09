@@ -82,18 +82,7 @@ export default class TrailInput extends Component {
                             />
                         </label>
 
-                        <label>
-                            Images
-                            <input type='file'
-                                   accept=".png,.jpg,.gif"
-                                   name='images'
-                                   onChange={e => this.handleChange(e)}
-                                   value={this.state.images}
-                            />
-                        </label>
-
                         <input type='submit' value='Create Trail'/>
-
                     </form>
                 </article>
             </details>
