@@ -6,8 +6,10 @@ const Trail = (props) => {
     return (
         <article className='trail-card'>
             <header>
-                <h4>{trail.name}</h4>
-                <h5>Open {trail.open_at} - {trail.close_at} </h5>
+                <hgroup>
+                    <h3>{trail.name}</h3>
+                    <h5>Open {trail.open_at} - {trail.close_at}</h5>
+                </hgroup>
             </header>
             <p>{trail.description}</p>
         </article>
