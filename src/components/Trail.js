@@ -1,8 +1,10 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 
 const Trail = (props) => {
 
     const { trail } = props
+
     return (
         <article className='trail-card'>
             <header>
@@ -12,6 +14,7 @@ const Trail = (props) => {
                 </hgroup>
             </header>
             <p>{trail.description}</p>
+            <Link to={`trails/${trail.id}`}>More Info</Link>
         </article>
     )
 }
