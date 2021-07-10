@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import Trail from "../components/Trail";
+import Trail from "../components/trails/Trail";
 
 import { connect } from 'react-redux'
-import {addTrail, createTrail, deleteTrail, fetchTrails} from "../actions/trailActions";
-import TrailInput from "../components/TrailInput";
+import {addTrail, createTrail, deleteTrail, fetchTrails, setTrail} from "../actions/trailActions";
+import TrailInput from "../components/trails/TrailInput";
 
 class TrailsContainer extends Component {
 
@@ -31,11 +31,12 @@ class TrailsContainer extends Component {
                         {/*  Implement Search Feature  */}
                     </section>
                     <section className='trails'>
-                        {trails.map(e => (
+                        {trails.map(trail => (
                             <Trail
-                                key={e.id}
-                                trail={e}
-                                user={e.user_id}
+                                key={trail.id}
+                                trail={trail}
+                                user={trail.user_id}
+                                onClick={e => setTrail(trail)}
                             />
                         ))}
                     </section>
@@ -46,6 +47,7 @@ class TrailsContainer extends Component {
 }
 
 const mapStateToProps = ({ trails, isLoaded, error }) => ({ trails, isLoaded, error })
+const dispatch = ({ addTrail, deleteTrail, fetchTrails, createTrail, setTrail })
 
-export default connect( mapStateToProps, ({ addTrail, deleteTrail, fetchTrails, createTrail }))(TrailsContainer)
+export default connect( mapStateToProps, dispatch)(TrailsContainer)
 
