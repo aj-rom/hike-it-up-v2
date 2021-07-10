@@ -4,6 +4,7 @@ import About from "./components/static/About";
 import Home from "./components/static/Home";
 import TrailInspectContainer from "./containers/TrailInspectContainer";
 import TrailSearchContainer from "./containers/TrailSearchContainer";
+import RouteContainer from "./containers/RouteContainer";
 
 export default function App() {
     return (
@@ -22,21 +23,7 @@ export default function App() {
                         </li>
                     </ul>
                 </nav>
-
-                <Switch>
-                    <Route exact path="/about">
-                        <About />
-                    </Route>
-                    <Route exact path="/trails">
-                        <TrailSearchContainer />
-                    </Route>
-                    <Route exact path="/trails/:id">
-                        <TrailInspectContainer/>
-                    </Route>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                </Switch>
+                <RouteContainer/>
             </div>
         </BrowserRouter>
     );
