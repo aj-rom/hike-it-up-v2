@@ -1,15 +1,10 @@
 // Include option to log in, if logged in show their dashboard
-import React, { Component } from 'react'
+import React from 'react'
 import ThemeSwitcher from "./ThemeSwitcher";
 
-export default class Home extends Component {
+export default function Home() {
 
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
+    return (
         <React.Fragment>
             <hgroup>
                 <h2>Home</h2>
@@ -17,6 +12,5 @@ export default class Home extends Component {
             </hgroup>
             <ThemeSwitcher/>
         </React.Fragment>
-        )
-    }
+    )
 }
