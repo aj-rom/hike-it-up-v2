@@ -1,9 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import About from "./components/static/About";
-import Home from "./components/static/Home";
-import TrailInspectContainer from "./containers/TrailInspectContainer";
-import TrailSearchContainer from "./containers/TrailSearchContainer";
+import { BrowserRouter, Link } from "react-router-dom";
 import RouteContainer from "./containers/RouteContainer";
 
 export default function App() {
