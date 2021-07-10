@@ -6,7 +6,6 @@ const defaultState = {
     description: '',
     open_at: '',
     close_at: '',
-    images: []
 }
 
 export default class TrailInput extends Component {
@@ -24,7 +23,7 @@ export default class TrailInput extends Component {
     handleSubmit = e => {
         e.preventDefault()
         this.props.createTrail(this.state)
-            .then(e => this.setState( defaultState) )
+            .then(e => this.setState(defaultState))
     }
 
     render() {
