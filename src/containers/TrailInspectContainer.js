@@ -25,6 +25,5 @@ class TrailInspectContainer extends Component {
 }
 
 const mapStateToProps = ({ trail, isLoaded, error }) => ({ trail, isLoaded, error })
-const dispatch = ({ fetchTrail })
 
-export default withRouter(connect( mapStateToProps, dispatch)(TrailInspectContainer))
+export default withRouter(connect( mapStateToProps, ({ fetchTrail }))(TrailInspectContainer))
