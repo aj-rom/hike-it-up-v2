@@ -28,37 +28,32 @@ export default class TrailInput extends Component {
 
     render() {
         return (
-            <details>
-                <summary>Add A Trail</summary>
-                <article>
-                    <form id='create-trail' onSubmit={ e => this.handleSubmit(e)}>
-                        <header>
-                            <h3>Create Trail</h3>
-                        </header>
-                        <label>
-                            Trail Name
-                            <input type='text'
-                                   name='name'
-                                   onChange={e => this.handleChange(e)}
-                                   value={this.state.name}
-                                   required={true}
-                                   max={100}
-                                   min={3}
-                            />
-                        </label>
+                <form id='create-trail' onSubmit={ e => this.handleSubmit(e)}>
+                    <label>
+                        Trail Name
+                        <input type='text'
+                               name='name'
+                               onChange={e => this.handleChange(e)}
+                               value={this.state.name}
+                               required={true}
+                               max={100}
+                               min={3}
+                        />
+                    </label>
 
-                        <label>
-                            Description
-                            <input type='textarea'
-                                   name='description'
-                                   onChange={e => this.handleChange(e)}
-                                   value={this.state.description}
-                                   required={true}
-                                   max={300}
-                                   min={15}
-                            />
-                        </label>
+                    <label>
+                        Description
+                        <textarea
+                               name='description'
+                               onChange={e => this.handleChange(e)}
+                               value={this.state.description}
+                               required={true}
+                               maxLength={300}
+                               minLength={15}
+                        />
+                    </label>
 
+                    <div className='grid'>
                         <label>
                             Open Time
                             <input
@@ -80,11 +75,10 @@ export default class TrailInput extends Component {
                                 required={true}
                             />
                         </label>
+                    </div>
 
-                        <input type='submit' value='Create Trail'/>
-                    </form>
-                </article>
-            </details>
+                    <input type='submit' value='Create Trail'/>
+                </form>
         )
     }
 }
