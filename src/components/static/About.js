@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function About() {
 
-    return(
+    return (
         <section id='about'>
             <hgroup>
                 <h2>About</h2>
