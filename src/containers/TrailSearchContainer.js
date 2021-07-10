@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import {fetchTrails, setTrail} from "../actions/trailActions";
-import {connect} from "react-redux";
+import { fetchTrails } from "../actions/trailActions";
+import { connect } from "react-redux";
 import Trail from "../components/trails/Trail";
 
 class TrailSearchContainer extends Component {
@@ -9,8 +9,18 @@ class TrailSearchContainer extends Component {
         this.props.fetchTrails()
     }
 
+    renderTrails() {
+        return this.props.trails.map(trail => (
+            <Trail
+                key={trail.id}
+                trail={trail}
+                user={trail.user_id}
+            />
+        ))
+    }
+
     render() {
-        const { error, isLoaded, trails } = this.props;
+        const { error, isLoaded } = this.props;
         if (error) {
             return <div className='error'>{error.message}...</div>;
         } else if (!isLoaded) {
@@ -25,15 +35,8 @@ class TrailSearchContainer extends Component {
                     <section>
                         {/*  Implement Search Feature  */}
                     </section>
-                    <section className='trails'>
-                        {trails.map(trail => (
-                            <Trail
-                                key={trail.id}
-                                trail={trail}
-                                user={trail.user_id}
-                                onClick={e => setTrail(trail)}
-                            />
-                        ))}
+                    <section>
+                        {this.renderTrails()}
                     </section>
                 </React.Fragment>
             )
@@ -43,6 +46,6 @@ class TrailSearchContainer extends Component {
 }
 
 const mapStateToProps = ({ trails, isLoaded, error }) => ({ trails, isLoaded, error })
-const dispatch = ({ fetchTrails, setTrail })
+const dispatch = ({ fetchTrails })
 
 export default connect( mapStateToProps, dispatch)(TrailSearchContainer)
