@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { fetchTrail, setTrail} from "../actions/trailActions";
 import {connect} from "react-redux";
 import { withRouter } from 'react-router-dom'
-import TrailInspect from "../components/trail/TrailInspect";
+import TrailInspect from "../components/trails/TrailInspect";
 
 class TrailInspectContainer extends Component {
 

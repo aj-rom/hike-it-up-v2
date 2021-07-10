@@ -1,5 +1,5 @@
 import React from 'react'
-import TrailInput from "../components/TrailInput";
+import TrailInput from "../components/trails/TrailInput";
 import { createTrail } from "../actions/trailActions";
 import { connect } from "react-redux";
 

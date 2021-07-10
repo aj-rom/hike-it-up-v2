@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {fetchTrails, setTrail} from "../actions/trailActions";
 import {connect} from "react-redux";
-import Trail from "../components/Trail";
+import Trail from "../components/trails/Trail";
 
 class TrailSearchContainer extends Component {
 
