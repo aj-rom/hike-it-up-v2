@@ -1,22 +1,18 @@
 import React from 'react'
 import TrailInput from "../components/trails/TrailInput";
-import { createTrail } from "../actions/trailActions";
 import { connect } from "react-redux";
+import {createTrail} from "../actions/trailActions";
 
-const TrailCreateContainer = () => {
+const TrailCreateContainer = (props) => {
     return (
         <React.Fragment>
             <hgroup>
                 <h1>Add a Trail</h1>
                 <h3>Post trails you've been on!</h3>
             </hgroup>
-            <section>
-                <TrailInput createTrail={this.props.createTrail}/>
-            </section>
+            <TrailInput createTrail={props.createTrail}/>
         </React.Fragment>
     )
 }
 
-const dispatch = ({ createTrail })
-
-export default connect( null, dispatch)(TrailCreateContainer)
+export default connect( null, ({ createTrail }))(TrailCreateContainer)
