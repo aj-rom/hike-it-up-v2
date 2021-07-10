@@ -1,8 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import TrailsContainer from "./containers/TrailsContainer";
 import About from "./components/static/About";
 import Home from "./components/static/Home";
+import TrailInspectContainer from "./containers/TrailInspectContainer";
+import TrailSearchContainer from "./containers/TrailSearchContainer";
 
 export default function App() {
     return (
@@ -23,13 +24,16 @@ export default function App() {
                 </nav>
 
                 <Switch>
-                    <Route path="/about">
+                    <Route exact path="/about">
                         <About />
                     </Route>
-                    <Route path="/trails">
-                        <TrailsContainer />
+                    <Route exact path="/trails">
+                        <TrailSearchContainer />
                     </Route>
-                    <Route path="/">
+                    <Route exact path="/trails/:id">
+                        <TrailInspectContainer/>
+                    </Route>
+                    <Route exact path="/">
                         <Home />
                     </Route>
                 </Switch>
