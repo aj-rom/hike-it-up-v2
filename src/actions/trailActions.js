@@ -1,8 +1,9 @@
-import {BACKEND_URL} from "../shared/constants";
+import { BACKEND_URL } from "../shared/constants";
 
 export const addTrail = trail =>({ type: 'ADD_TRAIL', trail: trail })
 export const deleteTrail = id => ({ type: 'DELETE_TRAIL', id: id })
 
+const TRAILS_URL = `${BACKEND_URL}trails`
 export const createTrail = trail => {
     const config = {
         method: 'POST',
@@ -21,7 +22,7 @@ export const createTrail = trail => {
             }
         }
 
-        return fetch(BACKEND_URL + 'trails', config)
+        return fetch(TRAILS_URL, config)
             .then(resp => { return resp.json() })
             .then(resp => handleResponse(resp))
             .catch(error => dispatch({ type: 'ERROR', error: error }))
@@ -30,7 +31,7 @@ export const createTrail = trail => {
 
 export const fetchTrails = () => {
     return (dispatch) => {
-        return fetch(BACKEND_URL + 'trails')
+        return fetch(TRAILS_URL)
             .then(resp => { return resp.json() })
             .then(json => dispatch({ type: 'FETCH_TRAILS', trails: json }))
             .catch(error => dispatch({ type: 'ERROR', error: error }))
