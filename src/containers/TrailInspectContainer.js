@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { fetchTrail, setTrail} from "../actions/trailActions";
-import {connect} from "react-redux";
+import { fetchTrail } from "../actions/trailActions";
+import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom'
 import TrailInspect from "../components/trails/TrailInspect";
 
@@ -19,14 +19,12 @@ class TrailInspectContainer extends Component {
         } else if (!isLoaded) {
             return <div className='on-load'>Loading...</div>;
         } else {
-            return ( <TrailInspect trail={trail}/>
-
-            )
+            return <TrailInspect trail={trail}/>
         }
     }
 }
 
 const mapStateToProps = ({ trail, isLoaded, error }) => ({ trail, isLoaded, error })
-const dispatch = ({ setTrail, fetchTrail })
+const dispatch = ({ fetchTrail })
 
 export default withRouter(connect( mapStateToProps, dispatch)(TrailInspectContainer))
