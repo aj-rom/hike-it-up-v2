@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Hike It Up v2
+The reincarnation of [hike-it-up](https://hike-it-up.herokuapp.com), a simple sinatra hiking trail sharing application. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Localalized Setup
 
-## Available Scripts
+### Requirments
 
-In the project directory, you can run:
+#### Ruby Version & Gem Requirments
+Ruby version **2.6.1** is required to run this application.
+And must have the [bundler](https://bundler.io/) gem installed.
 
-### `yarn start`
+#### PostgreSQL
+I recommend using the latest server version of PostgreSQL, but this must be installed on your system or our databases will not work.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You can find steps on the installation process [here](https://www.postgresql.org/download/).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Setup
 
-### `yarn test`
+1. Clone this repository
+2. Move into this repository. `cd hike-it-up-v2`
+3. Install packages with yarn. `yarn install`
+4. Run `yarn start`, this will start the frontend website at https://localhost:3000
+6. To get our backend up and running open a new terminal session and move to the backend directory. `cd backend`
+7. Run `bundle install && rails db:setup`
+8. And finally to start our backend server run `rails s` which will be hosted at https://localhost:3001
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Important
+Check out the seed file for the default user login!
