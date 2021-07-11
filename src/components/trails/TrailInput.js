@@ -22,7 +22,9 @@ export default class TrailInput extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
+        // TODO : HANDLE ERRORS
         this.props.createTrail(this.state)
+            .then(e => console.log(e))
             .then(e => this.setState(defaultState))
     }
 
