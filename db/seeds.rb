@@ -10,7 +10,7 @@ user ||= User.create(admin_account)
 trail_one = {
   name: 'Test Trail #1',
   description: 'Test trail #1 description',
-  address: 'Artist Point, Colorado 80302',
+  address: { street: 'Flagstaff Summit', city: 'Boulder', state: 'CO', zipcode: 80303 },
   open_at: '8:30',
   close_at: '20:00'
 }
@@ -20,7 +20,7 @@ user.trails.build(trail_one).save
 trail_two = {
   name: 'Test Trail #2',
   description: 'Test Trail #2 description',
-  address: 'Flagstaff Trail, Colorado 80302',
+  address: { street: 'Artist Point', city: 'Boulder', state: 'CO', zipcode: 80303 },
   open_at: '10:30',
   close_at: '22:30'
 }
