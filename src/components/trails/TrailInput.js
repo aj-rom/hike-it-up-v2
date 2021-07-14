@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 
 const defaultState = {
-    user_id: 1,
     name: '',
     description: '',
     open_at: '',
     close_at: '',
+    address: {
+        street: '',
+        city: '',
+        state: '',
+        zipcode: null
+    }
 }
 
 export default class TrailInput extends Component {
@@ -30,12 +35,12 @@ export default class TrailInput extends Component {
 
     render() {
         return (
-                <form id='create-trail' onSubmit={ e => this.handleSubmit(e)}>
+                <form id='create-trail' onSubmit={this.handleSubmit}>
                     <label>
                         Trail Name
                         <input type='text'
                                name='name'
-                               onChange={e => this.handleChange(e)}
+                               onChange={this.handleChange}
                                value={this.state.name}
                                required={true}
                                max={100}
@@ -47,7 +52,7 @@ export default class TrailInput extends Component {
                         Description
                         <textarea
                                name='description'
-                               onChange={e => this.handleChange(e)}
+                               onChange={this.handleChange}
                                value={this.state.description}
                                required={true}
                                maxLength={300}
@@ -61,7 +66,7 @@ export default class TrailInput extends Component {
                             <input
                                 name='open_at'
                                 type='time'
-                                onChange={e => this.handleChange(e)}
+                                onChange={this.handleChange}
                                 value={this.state.open_at}
                                 required={true}
                             />
@@ -78,6 +83,53 @@ export default class TrailInput extends Component {
                             />
                         </label>
                     </div>
+
+                    <h4>Address</h4>
+
+                        <label>
+                            Street
+                            <input
+                                name='street'
+                                type='text'
+                                onChange={this.handleChange}
+                                value={this.state.address.street}
+                                required={true}
+                            />
+                        </label>
+                    <div className='grid'>
+                        <label>
+                            City
+                            <input
+                                name='city'
+                                type='text'
+                                onChange={this.handleChange}
+                                value={this.state.address.city}
+                                required={true}
+                            />
+                        </label>
+
+                        <label>
+                            State
+                            <input
+                                name='state'
+                                type='text'
+                                onChange={this.handleChange}
+                                value={this.state.address.state}
+                                required={true}
+                            />
+                        </label>
+                    </div>
+                        <label>
+                            Zip Code
+                            <input
+                                name='zipcode'
+                                type='number'
+                                onChange={this.handleChange}
+                                value={this.state.address.zipcode}
+                                required={true}
+                            />
+                        </label>
+
 
                     <input type='submit' value='Create Trail'/>
                 </form>
