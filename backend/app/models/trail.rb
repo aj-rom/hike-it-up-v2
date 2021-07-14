@@ -2,9 +2,7 @@
 
 class Trail < ApplicationRecord
   # Active Storage
-  has_many_attached :images, dependent: :destroy
-  # Belongs to a User
-  belongs_to :user
+  has_one :address
 
   # Check for presence of attributes
   validates_presence_of :name, :description, :open_at, :close_at
