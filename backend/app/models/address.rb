@@ -7,6 +7,7 @@ class Address < ApplicationRecord
   validates_length_of :state, maximum: 2
   validates_length_of :zipcode, maximum: 5
 
+  # TODO : ADD FORMAT VALIDATIONS
   # ONLY ACCEPT CHARACTERS
   validates_format_of :street, format: { }
   validates_format_of :city, format: { }
