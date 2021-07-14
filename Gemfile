@@ -12,16 +12,6 @@ gem 'puma', '~> 5.0'
 
 gem 'fast_jsonapi'
 
-# User Authentication via Devise with OmniAuth
-gem 'devise'
-
-# OmniAuth & Strategies
-gem 'omniauth'
-gem 'omniauth-rails_csrf_protection'
-
-gem 'omniauth-facebook'
-gem 'omniauth-github'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
