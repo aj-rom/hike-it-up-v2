@@ -12,7 +12,7 @@ class TrailSerializer < ApplicationSerializer
     converted
   end
 
-  attribute :address do |obj|
+  attribute :formatted_address do |obj|
     obj = obj.address
     "#{obj.street}, #{obj.city}, #{obj.state} #{obj.zipcode}"
   end
