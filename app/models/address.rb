@@ -7,12 +7,13 @@ class Address < ApplicationRecord
   validates_length_of :state, maximum: 2
   validates_length_of :zipcode, maximum: 5
 
-  # TODO : ADD FORMAT VALIDATIONS
-  # ONLY ACCEPT CHARACTERS
-  validates_format_of :street, format: { }
-  validates_format_of :city, format: { }
-  validates_format_of :state, format: { }
+  validates_format_of :street, with: /\d*[a-zA-Z]*\s*/,
+                               message: 'Invalid format! Must only contain letters and numbers.'
+  validates_format_of :city, with: /([A-Z][a-zA-Z]*\s*)/,
+                             message: 'Only letters are allowed, each new word must start with a capital letter.!'
+  validates_format_of :state, with: /[A-Z]{2}/,
+                              message: 'Only two capital letters are allowed'
 
   # ONLY ACCEPT INTEGERS
-  validates_format_of :zipcode
+  validates_format_of :zipcode, with: /\d{5}/, message: 'Only five numbers are allowed!'
 end
