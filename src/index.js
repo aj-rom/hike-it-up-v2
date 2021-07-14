@@ -14,6 +14,7 @@ const store = createStore(trailsReducer, composeEnhancer(applyMiddleware(thunk))
 ReactDOM.render(
   <Provider store={store}>
     <App />
+    <span>Made with ❤️ by <a href='https://github.com/aj-rom'>A.J. Romaniello</a></span>
   </Provider>,
   document.getElementById('root')
 );
