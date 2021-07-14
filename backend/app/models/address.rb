@@ -6,4 +6,12 @@ class Address < ApplicationRecord
   validates_numericality_of :zipcode
   validates_length_of :state, maximum: 2
   validates_length_of :zipcode, maximum: 5
+
+  # ONLY ACCEPT CHARACTERS
+  validates_format_of :street, format: { }
+  validates_format_of :city, format: { }
+  validates_format_of :state, format: { }
+
+  # ONLY ACCEPT INTEGERS
+  validates_format_of :zipcode
 end
