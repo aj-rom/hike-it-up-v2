@@ -11,4 +11,9 @@ class TrailSerializer < ApplicationSerializer
     converted = convert_time obj.close_at
     converted
   end
+
+  attribute :address do |obj|
+    obj = obj.address
+    "#{obj.street}, #{obj.city}, #{obj.state} #{obj.zipcode}"
+  end
 end
