@@ -2,7 +2,7 @@ class TrailsController < ApplicationController
 
   def index
     trails = Trail.all
-    trails_json = TrailsSerializer.new(trails).to_h
+    trails_json = TrailSerializer.new(trails).to_h
     render json: trails_json
   end
 
@@ -27,7 +27,7 @@ class TrailsController < ApplicationController
   private
 
   def trail_params
-    params.require(:trail).permit(:name, :description, :open_at, :close_at, :images, :user_id)
+    params.require(:trail).permit(:name, :description, :open_at, :close_at, :address, :user_id)
   end
 
 end
