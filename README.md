@@ -1,11 +1,11 @@
 # Hike It Up v2
 The reincarnation of [hike-it-up](https://hike-it-up.herokuapp.com), a simple sinatra hiking trail sharing application. 
 
-## Localalized Setup
+## Localized Setup
 
-### Requirments
+### Requirements
 
-#### Ruby Version & Gem Requirments
+#### Ruby Version & Gem Requirements
 Ruby version **2.6.1** is required to run this application.
 And must have the [bundler](https://bundler.io/) gem installed.
 
