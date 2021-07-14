@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 const defaultState = {
+    errors: [],
     name: '',
     description: '',
     open_at: '',
@@ -116,6 +117,8 @@ export default class TrailInput extends Component {
                                 onChange={this.handleChange}
                                 value={this.state.address.state}
                                 required={true}
+                                minLength={2}
+                                maxLength={2}
                             />
                         </label>
                     </div>
@@ -127,6 +130,8 @@ export default class TrailInput extends Component {
                                 onChange={this.handleChange}
                                 value={this.state.address.zipcode}
                                 required={true}
+                                minLength={5}
+                                maxLength={5}
                             />
                         </label>
 
