@@ -3,7 +3,6 @@ class CreateTrails < ActiveRecord::Migration[6.1]
     create_table :trails do |t|
       t.text :name, required: true
       t.text :description, required: true
-      t.text :address, required: true
       t.string :open_at, required: true
       t.string :close_at, required: true
 
