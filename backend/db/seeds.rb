@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+user_one = User.create(email: 'user1@gmail.com', password: 'password', password_confirmation: 'password' )
+
+
 trail_one = {
   name: 'Test Trail #1',
   description: 'Test trail #1 description',
@@ -6,7 +10,9 @@ trail_one = {
   close_at: '20:00'
 }
 
-Trail.create(trail_one)
+user_one.trails.build(trail_one).save
+
+user_two = User.create(email: 'user2@gmail.com', password: 'password', password_confirmation: 'password' )
 
 trail_two = {
   name: 'Test Trail #2',
@@ -16,4 +22,4 @@ trail_two = {
   close_at: '22:30'
 }
 
-Trail.create(trail_two)
+user_two.trails.build(trail_two).save
