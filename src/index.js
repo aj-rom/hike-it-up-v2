@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import {Provider} from "react-redux";
-import {compose, applyMiddleware, createStore} from 'redux';
+import {compose, applyMiddleware, createStore, combineReducers} from 'redux';
 import trailsReducer from "./reducers/trailsReducer";
 import thunk from "redux-thunk";
+import accountReducer from "./reducers/accountReducer";
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store = createStore(trailsReducer, composeEnhancer(applyMiddleware(thunk)))
+const rootReducer = combineReducers({ trailsReducer, accountReducer})
+const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
