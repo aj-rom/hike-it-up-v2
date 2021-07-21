@@ -3,6 +3,7 @@ import { fetchTrails } from "../actions/trailActions";
 import { connect } from "react-redux";
 import Trail from "../components/trails/Trail";
 import TrailSearch from "../components/trails/TrailSearch";
+import {loading} from "../shared/loading";
 
 class TrailSearchContainer extends Component {
 
@@ -24,7 +25,7 @@ class TrailSearchContainer extends Component {
         if (error) {
             return <div className='error'>{error.message}...</div>;
         } else if (!isLoaded) {
-            return <div className='on-load'>Loading...</div>;
+            return loading;
         } else {
             return (
                 <React.Fragment>

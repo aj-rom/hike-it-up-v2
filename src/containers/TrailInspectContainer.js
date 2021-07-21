@@ -3,6 +3,7 @@ import { fetchTrail } from "../actions/trailActions";
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom'
 import TrailInspect from "../components/trails/TrailInspect";
+import {loading} from "../shared/loading";
 
 class TrailInspectContainer extends Component {
 
@@ -17,7 +18,7 @@ class TrailInspectContainer extends Component {
         if (error) {
             return <div className='error'>{error.message}...</div>;
         } else if (!isLoaded) {
-            return <div className='on-load'>Loading...</div>;
+            return loading
         } else {
             return <TrailInspect trail={trail}/>
         }
