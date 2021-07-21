@@ -136,7 +136,11 @@ export default class TrailInput extends Component {
                         </label>
 
 
-                    <input type='submit' value='Create Trail'/>
+                    <div className='grid'>
+                        <br/>
+                        <input type='submit' value='Create Trail'/>
+                        <br/>
+                    </div>
                 </form>
         )
     }
