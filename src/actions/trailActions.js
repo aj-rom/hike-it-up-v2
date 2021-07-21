@@ -1,6 +1,6 @@
 import {BACKEND_URL, handleError} from "../shared/constants";
 
-export const addTrail = trail =>({ type: 'ADD_TRAIL', trail: trail })
+export const addTrail = trail => ({ type: 'ADD_TRAIL', trail: trail })
 export const deleteTrail = id => ({ type: 'DELETE_TRAIL', id: id })
 
 const TRAILS_URL = `${BACKEND_URL}trails`
@@ -41,11 +41,8 @@ export const fetchTrails = () => {
 const TRAIL_URL = BACKEND_URL + 'trails/'
 
 export const fetchTrail = id => {
-    console.log('Fetching trails with id of', id)
-
     return dispatch => {
         function handleResponse(json) {
-            console.log('HANDING RESPONSE',json)
             dispatch({ type: 'FETCH_TRAIL', trail: json })
         }
 
