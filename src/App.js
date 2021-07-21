@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter, NavLink } from "react-router-dom";
 import RouteContainer from "./containers/RouteContainer";
 
 export default function App() {
@@ -9,13 +9,13 @@ export default function App() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/">Home</Link>
+                            <NavLink to="/hike-it-up-v2">Home</NavLink>
                         </li>
                         <li>
-                            <Link to="/trails">Trails</Link>
+                            <NavLink to="/hike-it-up-v2/trails">Trails</NavLink>
                         </li>
                         <li>
-                            <Link to="/about">About</Link>
+                            <NavLink to="/hike-it-up-v2/about">About</NavLink>
                         </li>
                     </ul>
                 </nav>
