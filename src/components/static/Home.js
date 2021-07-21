@@ -1,6 +1,6 @@
-// Include option to log in, if logged in show their dashboard
 import React from 'react'
 import ThemeSwitcher from "./ThemeSwitcher";
+import AccountContainer from "../../containers/AccountContainer";
 
 export default function Home() {
 
@@ -11,6 +11,7 @@ export default function Home() {
                 <h4>View the Top Rated Trails</h4>
             </hgroup>
             <ThemeSwitcher/>
+            <AccountContainer/>
         </React.Fragment>
     )
 }
