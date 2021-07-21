@@ -1,7 +1,7 @@
 class TrailsController < ApplicationController
 
   def index
-    trails = Trail.all
+    trails = Trail.order('created_at DESC')
     trails_json = TrailSerializer.new(trails).to_h
     render json: trails_json
   end
