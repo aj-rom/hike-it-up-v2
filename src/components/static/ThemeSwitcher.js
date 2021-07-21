@@ -2,10 +2,6 @@ import React from "react";
 
 export default function ThemeSwitcher() {
 
-    const switchToAuto = () => {
-        changeTheme('auto')
-    }
-
     const switchToLight = () => {
         changeTheme('light')
     }
@@ -20,13 +16,15 @@ export default function ThemeSwitcher() {
         return node
     }
 
-    return <nav className='theme'>
-        <ul>
-            <li>Theme</li>
-            <li><a href='#' onClick={switchToAuto}>Auto</a></li>
-            <li><a href='#' onClick={switchToLight}>Light</a></li>
-            <li><a href='#' onClick={switchToDark}>Dark</a></li>
-        </ul>
-    </nav>
+    return <article>
+        <hgroup>
+            <h3>Theme</h3>
+            <h5>Change the theme of the website.</h5>
+        </hgroup>
+        <div className='grid'>
+            <button onClick={switchToLight} className='outline'>Light</button>
+            <button onClick={switchToDark} className='contrast outline'>Dark</button>
+        </div>
+    </article>
 }
 
