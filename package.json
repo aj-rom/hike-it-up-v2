@@ -2,6 +2,7 @@
   "name": "hike-it-up-v2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://aj-rom.github.io/hike-it-up-v2",
   "dependencies": {
     "gh-pages": "^3.2.3",
     "react": "^17.0.2",
