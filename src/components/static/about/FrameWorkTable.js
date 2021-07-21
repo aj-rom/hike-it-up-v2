@@ -16,7 +16,7 @@ export default function FrameWorkTable() {
             <header>
                 <hgroup>
                     <h3>FrameWorks Used</h3>
-                    <h5>A comprehensive list to every open-source library used in this project.</h5>
+                    <h5>A comprehensive list of every open-source library used in this project.</h5>
                 </hgroup>
             </header>
             <table>
