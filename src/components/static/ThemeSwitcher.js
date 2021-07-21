@@ -2,17 +2,15 @@ import React from "react";
 
 export default function ThemeSwitcher() {
 
-    const switchToLight = () => {
-        changeTheme('light')
-    }
-
-    const switchToDark = () => {
-        changeTheme('dark')
-    }
-
-    function changeTheme(theme) {
+    function changeTheme() {
         const node = document.querySelector('html')
-        node.dataset.theme = theme
+        const prevTheme = node.dataset.theme
+
+        if (prevTheme === 'light')
+            node.dataset.theme = 'dark'
+        else
+            node.dataset.theme = 'light'
+
         return node
     }
 
@@ -21,10 +19,12 @@ export default function ThemeSwitcher() {
             <h3>Theme</h3>
             <h5>Change the theme of the website.</h5>
         </hgroup>
-        <div className='grid'>
-            <button onClick={switchToLight} className='outline'>Light</button>
-            <button onClick={switchToDark} className='contrast outline'>Dark</button>
-        </div>
+        <fieldset>
+            <label htmlFor="switch">
+                <input type="checkbox" id="switch" name="switch" role="switch" onChange={changeTheme}/>
+                Switch Theme
+            </label>
+        </fieldset>
     </article>
 }
 
