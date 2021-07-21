@@ -78,4 +78,21 @@ RSpec.describe Trail, type: :model do
       expect(b.id).to_not eq nil
     end
   end
+
+  context 'on publication' do
+
+    valid_trail = {
+      name: 'Trail Name',
+      description: 'A valid description',
+      open_at: '10:30',
+      close_at: '22:30'
+    }
+
+    it 'can be created' do
+      a = User.first.trails.build(valid_trail)
+      a.address = Address.create(street: '1234 Street Ln', city: 'Boulder', state: 'CO', zipcode: 80303)
+      a.save
+      expect(a.id).to_not eq nil
+    end
+  end
 end
