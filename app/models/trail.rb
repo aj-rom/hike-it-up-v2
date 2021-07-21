@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Trail < ApplicationRecord
-  # Active Storage
+  belongs_to :user, dependent: :destroy
   has_one :address
 
   # Check for presence of attributes
