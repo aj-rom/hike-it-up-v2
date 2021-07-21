@@ -15,7 +15,7 @@ const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)))
 ReactDOM.render(
   <Provider store={store}>
     <App />
-    <span>Made with ❤️ by <a href='https://github.com/aj-rom'>A.J. Romaniello</a></span>
+    <p>Made with ❤️ by <a href='https://github.com/aj-rom'>A.J. Romaniello</a></p>
   </Provider>,
   document.getElementById('root')
 );
