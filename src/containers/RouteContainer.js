@@ -11,25 +11,25 @@ import SignUpContainer from "./SignUpContainer";
 export default function RouteContainer() {
     return (
         <Switch>
-            <Route path="/hike-it-up-v2/about">
+            <Route exact path="/about">
                 <About />
             </Route>
-            <Route path='hike-it-up-v2/login'>
+            <Route exact path='/login'>
                 <LogInContainer/>
             </Route>
-            <Route path='/hike-it-up-v2/signup'>
+            <Route exact path='/signup'>
                 <SignUpContainer/>
             </Route>
-            <Route path="/hike-it-up-v2/trails">
+            <Route exact path="/trails">
                 <TrailSearchContainer />
             </Route>
-            <Route path="/hike-it-up-v2/new_trail">
+            <Route exact path="/new_trail">
                 <TrailCreateContainer/>
             </Route>
-            <Route path="/hike-it-up-v2/trails/:id">
+            <Route exact path="/trails/:id">
                 <TrailInspectContainer/>
             </Route>
-            <Route path="/hike-it-up-v2/">
+            <Route exact path="/">
                 <Home />
             </Route>
         </Switch>

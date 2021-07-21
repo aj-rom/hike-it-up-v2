@@ -1,27 +1,27 @@
 import React from 'react'
-import { BrowserRouter, NavLink } from "react-router-dom";
+import { HashRouter, NavLink } from "react-router-dom";
 import RouteContainer from "./containers/RouteContainer";
 
 export default function App() {
     return (
-        <BrowserRouter>
+        <HashRouter baseName='hike-it-up-v2'>
             <div>
                 <nav>
                     <ul>
                         <li>
-                            <NavLink to="/hike-it-up-v2">Home</NavLink>
+                            <NavLink to="/">Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/hike-it-up-v2/trails">Trails</NavLink>
+                            <NavLink to="/trails">Trails</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/hike-it-up-v2/about">About</NavLink>
+                            <NavLink to="/about">About</NavLink>
                         </li>
                     </ul>
                 </nav>
                 <RouteContainer/>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
