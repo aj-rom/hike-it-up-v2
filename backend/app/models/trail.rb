@@ -5,7 +5,7 @@ class Trail < ApplicationRecord
   has_one :address
 
   # Check for presence of attributes
-  validates_presence_of :name, :description, :open_at, :close_at
+  validates_presence_of :name, :description, :open_at, :close_at, :address
 
   # Validate length of name & description
   validates_length_of :name, maximum: 100, minimum: 3
