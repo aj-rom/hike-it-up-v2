@@ -14,7 +14,7 @@ class AccountContainer extends Component {
                 <article>
                     <h3>Account</h3>
                     <p>
-                        <Link to='/login'>Login</Link> or <Link to='/signup'>Sign Up</Link> to get started posting trails!
+                        <Link to='/hike-it-up-v2/login'>Login</Link> or <Link to='/hike-it-up-v2/signup'>Sign Up</Link> to get started posting trails!
                         <br/>
                         Otherwise, feel free to check out all of the trails right <Link to='/trails'>here</Link>.
                     </p>

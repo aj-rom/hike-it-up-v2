@@ -14,7 +14,7 @@ const Trail = (props) => {
                 </hgroup>
             </header>
             <p>{trail.description}</p>
-            <Link to={`trails/${trail.id}`}>More Info</Link>
+            <Link to={`/hike-it-up-v2/trails/${trail.id}`}>More Info</Link>
         </article>
     )
 }
