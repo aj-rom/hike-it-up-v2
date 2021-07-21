@@ -8,10 +8,10 @@ export default function Home() {
         <React.Fragment>
             <hgroup>
                 <h2>Home</h2>
-                <h4>View the Top Rated Trails</h4>
+                <h4>View your Account</h4>
             </hgroup>
-            <ThemeSwitcher/>
             <AccountContainer/>
+            <ThemeSwitcher/>
         </React.Fragment>
     )
 }
