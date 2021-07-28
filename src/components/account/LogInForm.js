@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import {connect} from "react-redux";
+import {ErrorField} from "./ErrorField";
 
-export default class LogInForm extends Component {
+class LogInForm extends Component {
 
     constructor(props) {
         super(props);
@@ -13,7 +15,6 @@ export default class LogInForm extends Component {
 
     }
 
-
     handleChange = e => {
         const { name, value } = e.target
         this.setState({ ...this.state, [name]: value })
@@ -21,10 +22,13 @@ export default class LogInForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.onSubmit(this.state)
         if (this.props.includeConfirmation) {
-            this.setState({ email: '', password: '', password_confirmation: ''})
+            if (this.state.password === this.state.password_confirmation) {
+                this.props.onSubmit(this.state)
+                this.setState({email: '', password: '', password_confirmation: ''})
+            } else alert('Passwords do not match!')
         } else {
+            this.props.onSubmit(this.state)
             this.setState({ email: '', password: '' })
         }
     }
@@ -52,6 +56,7 @@ export default class LogInForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
+                { this.props.errors ? <ErrorField key={this.props.errors.length} errors={this.props.errors}/> : null }
                 <fieldset>
                     <label>
                         Email Address
@@ -62,6 +67,7 @@ export default class LogInForm extends Component {
                             onChange={this.handleChange}
                             required={true}
                         />
+
                     </label>
                 </fieldset>
                 <div className='grid'>
@@ -85,3 +91,8 @@ export default class LogInForm extends Component {
         )
     }
 }
+const mapStateToProps = (state) => ({
+    errors: state.accountReducer.errors
+})
+
+export default connect(mapStateToProps)(LogInForm)
