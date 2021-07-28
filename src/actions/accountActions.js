@@ -35,7 +35,7 @@ export const logIn = (data) => {
 
     return (dispatch) => {
         function handleResponse(resp) {
-            if (resp.errors.length > 0) {
+            if (resp.errors) {
                 dispatch({ type: 'ERROR', errors: resp.errors})
             } else {
                 dispatch({ type: 'LOG_IN', user: resp })
