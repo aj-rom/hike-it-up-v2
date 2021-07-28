@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
+import LogInForm from "../components/account/LogInForm";
+import {signUp} from "../actions/accountActions";
 
 class SignUpContainer extends Component {
 
@@ -10,16 +12,12 @@ class SignUpContainer extends Component {
                     <h1>Sign Up</h1>
                     <h3>Create an Account to post new trails.</h3>
                 </hgroup>
-                <p>Form goes here</p>
+                <LogInForm includeConfirmation={true} onSubmit={this.props.signUp}/>
             </React.Fragment>
         )
     }
 }
 
-const mapStateToProps = (state) => ({
+const dispatch = ({ signUp })
 
-})
-
-const dispatch = ({})
-
-export default connect(mapStateToProps, dispatch)(SignUpContainer)
+export default connect(null, dispatch)(SignUpContainer)
