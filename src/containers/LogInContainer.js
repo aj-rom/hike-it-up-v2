@@ -20,10 +20,6 @@ class LogInContainer extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-
-})
-
 const dispatch = ({ logIn })
 
-export default connect(mapStateToProps, dispatch)(LogInContainer)
+export default connect(null, dispatch)(LogInContainer)
