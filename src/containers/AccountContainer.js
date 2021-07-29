@@ -8,7 +8,7 @@ class AccountContainer extends Component {
     render() {
         const { isLoggedIn, user } = this.props
         if (isLoggedIn) {
-            return <UserInfo user={user}/>
+            return <UserInfo user_id={user.id}/>
         } else {
             return (
                 <article>
