@@ -11,6 +11,18 @@ import {connect} from "react-redux";
 
 class RouteContainer extends Component {
 
+    redirectToIfNotLogged(isLoggedIn, pathToRedirect, component) {
+        return isLoggedIn ? component : <Redirect to={pathToRedirect}/>
+    }
+
+    redirectToIfLogged(isLoggedIn, pathToRedirect, component) {
+        return isLoggedIn ? <Redirect to={pathToRedirect}/> : component
+    }
+
+    redirectHomeIfLogged(isLoggedIn, component) {
+        return this.redirectToIfLogged(isLoggedIn, '/', component)
+    }
+
     render() {
         const { isLoggedIn } = this.props
         return (
@@ -19,16 +31,16 @@ class RouteContainer extends Component {
                     <About/>
                 </Route>
                 <Route exact path='/login'>
-                    { isLoggedIn ? <Redirect to={'/'}/> : <LogInContainer/>}
+                    { this.redirectHomeIfLogged(isLoggedIn, <LogInContainer/>)}
                 </Route>
                 <Route exact path='/signup'>
-                    { isLoggedIn ? <Redirect to={'/'}/> : <SignUpContainer/>}
+                    { this.redirectHomeIfLogged(isLoggedIn, <SignUpContainer/>)}
                 </Route>
                 <Route exact path="/trails">
                     <TrailSearchContainer/>
                 </Route>
-                <Route exact path="/new_trail">
-                    <TrailCreateContainer/>
+                <Route exact path="/trails/new">
+                    { this.redirectToIfNotLogged(isLoggedIn, '/login', <TrailCreateContainer/>)}
                 </Route>
                 <Route exact path="/trails/:id">
                     <TrailInspectContainer/>
