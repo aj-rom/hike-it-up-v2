@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
-import LogInForm from "../components/account/LogInForm";
+import AuthForm from "../components/account/AuthForm";
 import {signUp} from "../actions/accountActions";
 
 class SignUpContainer extends Component {
@@ -12,7 +12,7 @@ class SignUpContainer extends Component {
                     <h1>Sign Up</h1>
                     <h3>Create an Account to post new trails.</h3>
                 </hgroup>
-                <LogInForm includeConfirmation={true} onSubmit={this.props.signUp}/>
+                <AuthForm includeConfirmation={true} onSubmit={this.props.signUp}/>
             </React.Fragment>
         )
     }

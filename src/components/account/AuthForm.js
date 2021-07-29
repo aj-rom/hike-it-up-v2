@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {connect} from "react-redux";
 import {ErrorField} from "./ErrorField";
 
-class LogInForm extends Component {
+class AuthForm extends Component {
 
     constructor(props) {
         super(props);
@@ -55,39 +55,41 @@ class LogInForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                { this.props.errors ? <ErrorField key={this.props.errors.length} errors={this.props.errors}/> : null }
-                <fieldset>
-                    <label>
-                        Email Address
-                        <input
-                            type='email'
-                            name='email'
-                            value={this.state.email}
-                            onChange={this.handleChange}
-                            required={true}
-                        />
-
-                    </label>
-                </fieldset>
-                <div className='grid'>
+            <article>
+                <form onSubmit={this.handleSubmit}>
+                    { this.props.errors ? <ErrorField key={this.props.errors.length} errors={this.props.errors}/> : null }
                     <fieldset>
                         <label>
-                            Password
+                            Email Address
                             <input
-                                type='password'
-                                name='password'
-                                value={this.state.password}
+                                type='email'
+                                name='email'
+                                value={this.state.email}
                                 onChange={this.handleChange}
                                 required={true}
-                                minLength={6}
                             />
+
                         </label>
                     </fieldset>
-                    {this.includesConfirmation()}
-                </div>
-            <input type='submit' value='Login'/>
-        </form>
+                    <div className='grid'>
+                        <fieldset>
+                            <label>
+                                Password
+                                <input
+                                    type='password'
+                                    name='password'
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
+                                    required={true}
+                                    minLength={6}
+                                />
+                            </label>
+                        </fieldset>
+                        {this.includesConfirmation()}
+                    </div>
+                    <input type='submit' value='Login'/>
+                </form>
+            </article>
         )
     }
 }
@@ -95,4 +97,4 @@ const mapStateToProps = (state) => ({
     errors: state.accountReducer.errors
 })
 
-export default connect(mapStateToProps)(LogInForm)
+export default connect(mapStateToProps)(AuthForm)
