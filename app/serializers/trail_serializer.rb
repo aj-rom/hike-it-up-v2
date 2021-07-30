@@ -17,12 +17,12 @@ class TrailSerializer < ApplicationSerializer
     "#{obj.street}, #{obj.city}, #{obj.state} #{obj.zipcode}"
   end
 
-  private
+  class << self
+    def convert_time(time_string)
+      time = time_string.split(':')
+      return "#{time_string} AM" if time.first.to_i <= 12
 
-  def convert_time(time_string)
-    time = time_string.split(':')
-    return "#{time_string} AM" if time.first.to_i <= 12
-
-    "#{time.first.to_i - 12}:#{time.last} PM"
+      "#{time.first.to_i - 12}:#{time.last} PM"
+    end
   end
 end
