@@ -15,7 +15,7 @@ export const signUp = (data) => {
             if (resp.errors.length > 0) {
                 dispatch({ type: 'ERROR', errors: resp.errors})
             } else {
-                dispatch({ type: 'SIGN_UP', user: resp })
+                dispatch({ type: 'SIGN_UP', id: resp.id })
             }
         }
 
@@ -38,7 +38,7 @@ export const logIn = (data) => {
             if (resp.errors) {
                 dispatch({ type: 'ERROR', errors: resp.errors})
             } else {
-                dispatch({ type: 'LOG_IN', user: resp })
+                dispatch({ type: 'LOG_IN', id: resp.id })
             }
         }
 
