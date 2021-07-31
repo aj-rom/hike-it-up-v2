@@ -1,5 +1,6 @@
 class UserSerializer < ApplicationSerializer
-  attributes :id, :email
+  attributes :email
+  has_many :trails
   set_type :user
 
   attribute :trail_count do |obj|
