@@ -21,9 +21,9 @@ class TrailSearchContainer extends Component {
     }
 
     render() {
-        const { error, isLoaded } = this.props;
-        if (error) {
-            return <div className='error'>{error.message}...</div>;
+        const { errors, isLoaded } = this.props;
+        if (errors) {
+            return <div className='error'>{errors}...</div>;
         } else if (!isLoaded) {
             return loading;
         } else {
