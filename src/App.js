@@ -6,15 +6,6 @@ import {logOut} from "./actions/accountActions";
 
  class App extends Component {
 
-     handleLogOut = e => {
-         e.preventDefault()
-         return this.props.logOut
-     }
-
-     getSignOutButton = () => {
-         return <button onClick={this.handleLogOut} value='Log Out'/>
-     }
-
      render() {
          return (
              <HashRouter baseName='hike-it-up-v2'>
@@ -31,7 +22,7 @@ import {logOut} from "./actions/accountActions";
                                  <NavLink to="/about">About</NavLink>
                              </li>
                              <li>
-                                 { this.props.isLoggedIn ? this.getSignOutButton : <NavLink to="/login">Log In</NavLink>}
+                                 { this.props.isLoggedIn ? null : <NavLink to="/login">Log In</NavLink>}
                              </li>
                          </ul>
                      </nav>
@@ -47,5 +38,5 @@ const mapStateToProps = (state) => ({
     isLoggedIn: state.accountReducer.isLoggedIn
 })
 
-export default connect(mapStateToProps, ({ logOut }))(App)
+export default connect(mapStateToProps, null)(App)
 
