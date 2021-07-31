@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { HashRouter, NavLink } from "react-router-dom";
 import RouteContainer from "./containers/RouteContainer";
 import {connect} from "react-redux";
-import {logOut} from "./actions/accountActions";
 
  class App extends Component {
 
