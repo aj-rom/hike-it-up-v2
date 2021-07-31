@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
-import {UserInfo} from "../components/account/UserInfo";
-import {Link} from "react-router-dom";
+import UserInfo from "../components/account/UserInfo";
+import { Link } from "react-router-dom";
+import {fetchUser} from "../actions/userActions";
 
 class AccountContainer extends Component {
 
     render() {
-        const { isLoggedIn, user } = this.props
+        const { isLoggedIn } = this.props
         if (isLoggedIn) {
-            return <UserInfo user_id={user.id}/>
+            return <UserInfo user_id={this.props.id} fetchUser={this.props.fetchUser}/>
         } else {
             return (
                 <article>
@@ -25,10 +26,8 @@ class AccountContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.accountReducer.user,
-    isLoggedIn: state.accountReducer.isLoggedIn
+    isLoggedIn: state.accountReducer.isLoggedIn,
+    id: state.accountReducer.id
 })
 
-const dispatch = ({  })
-
-export default connect(mapStateToProps, dispatch)(AccountContainer)
+export default connect(mapStateToProps, { fetchUser })(AccountContainer)
