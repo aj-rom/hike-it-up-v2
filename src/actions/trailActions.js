@@ -15,7 +15,7 @@ export const createTrail = trail => {
 
         function handleResponse(resp) {
             if (resp.id !== null) {
-                dispatch({ type: 'ERROR', errors: resp })
+                dispatch({ type: 'TRAIL_ERROR', errors: resp })
             }
             else {
                 dispatch({ type: 'ADD_TRAIL', trail: resp })
@@ -43,7 +43,12 @@ const TRAIL_URL = BACKEND_URL + 'trails/'
 export const fetchTrail = id => {
     return dispatch => {
         function handleResponse(json) {
-            dispatch({ type: 'FETCH_TRAIL', trail: json })
+            if (json.error) {
+                dispatch({ type: 'TRAIL_ERROR', errors: [json.error] })
+            }
+            else {
+                dispatch({ type: 'FETCH_TRAIL', trail: json })
+            }
         }
 
         return fetch(TRAIL_URL + id)
