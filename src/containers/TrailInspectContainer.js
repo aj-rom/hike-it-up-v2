@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { fetchTrail } from "../actions/trailActions";
 import { connect } from "react-redux";
-import { withRouter } from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import TrailInspect from "../components/trails/TrailInspect";
 import {loading} from "../shared/loading";
+import {ErrorField} from "../components/account/ErrorField";
 
 class TrailInspectContainer extends Component {
 
@@ -14,9 +15,16 @@ class TrailInspectContainer extends Component {
     }
 
     render() {
-        const { error, isLoaded, trail } = this.props;
-        if (error) {
-            return <div className='error'>{error.message}...</div>;
+        const { errors, isLoaded, trail } = this.props;
+        if (errors.length > 0) {
+            return <article>
+                <hgroup>
+                    <h3>An Error Has Occurred</h3>
+                    <h5>{errors[0]}</h5>
+                </hgroup>
+
+                <Link to={'/trails'}>Return to Main Page</Link>
+            </article>
         } else if (!isLoaded) {
             return loading
         } else {
@@ -26,7 +34,7 @@ class TrailInspectContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    error: state.trailsReducer.error,
+    errors: state.trailsReducer.errors,
     isLoaded: state.trailsReducer.isLoaded,
     trail: state.trailsReducer.trail
 })
