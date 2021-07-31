@@ -3,7 +3,7 @@ const initialState = {
     trails: [],
     query: '',
     isLoaded: false,
-    error: null
+    errors: []
 }
 
 const trailsReducer = (state = initialState, action) => {
@@ -11,15 +11,15 @@ const trailsReducer = (state = initialState, action) => {
         case 'LOADING_TRAILS':
             return { ...state, trails: state.trails, isLoaded: false }
         case 'ADD_TRAIL':
-            return { ...state, trails: [...state.trails, action.trail], isLoaded: true }
+            return { ...state, trails: [...state.trails, action.trail], isLoaded: true, errors: [] }
         case 'FETCH_TRAILS':
-            return { ...state, trails: action.trails, isLoaded: true}
+            return { ...state, trails: action.trails, isLoaded: true, errors: []}
         case 'LOADING_TRAIL':
             return { ...state, trail: state.trail, isLoaded: false }
         case 'FETCH_TRAIL':
-            return { ...state, trail: action.trail, isLoaded: true}
-        case 'ERROR':
-            return { ...state, error: action.error, isLoaded: false }
+            return { ...state, trail: action.trail, isLoaded: true, errors: []}
+        case 'TRAIL_ERROR':
+            return { ...state, errors: action.errors, isLoaded: false }
         default:
             return state
     }
