@@ -1,11 +1,12 @@
-const trailsReducer = (
-    state = {
-        trail: {},
-        trails: [],
-        query: '',
-        isLoaded: false,
-        error: null
-}, action) => {
+const initialState = {
+    trail: {},
+    trails: [],
+    query: '',
+    isLoaded: false,
+    error: null
+}
+
+const trailsReducer = (state = initialState, action) => {
     switch(action.type) {
         case 'LOADING_TRAILS':
             return { ...state, trails: state.trails, isLoaded: false }
