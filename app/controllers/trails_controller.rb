@@ -8,6 +8,8 @@ class TrailsController < ApplicationController
 
   def show
     trail = Trail.find_by(id: params[:id])
+    return render json: { error: 'Trail not found!' } unless trail
+
     render json: TrailSerializer.new(trail).to_h
   end
 
