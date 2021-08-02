@@ -5,13 +5,11 @@ const accountReducer = ( state = initialState, action) => {
             return { id: action.id, isLoggedIn: true }
         case 'LOG_IN':
             return { id: action.id, isLoggedIn: true }
-        case 'LOG_OUT':
-            console.log('Logging Out, See ya!')
-            return initialState
         case 'ERROR':
             return { ...state, errors: action.errors }
+        case 'LOG_OUT':
         default:
-            return state
+            return initialState
     }
 }
 
