@@ -63,7 +63,7 @@ const mapStateToProps = (state) => {
         errors: state.userReducer.errors,
         isLoaded: state.userReducer.isLoaded,
         user: state.userReducer.user
-        }
+    }
 }
 
 export default connect(mapStateToProps, ({ fetchUser, logOut }))(UserInfo)
