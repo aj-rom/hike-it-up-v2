@@ -36,7 +36,7 @@ export default class TrailInput extends Component {
 
     render() {
         return (
-                <form id='create-trail' onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <label>
                         Trail Name
                         <input type='text'
