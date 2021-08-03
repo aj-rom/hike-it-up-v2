@@ -1,10 +1,8 @@
-const initialState = { id: null, errors: [], isLoggedIn: false }
+const initialState = { id: null, auth_token: '', errors: [], isLoggedIn: false }
 const accountReducer = ( state = initialState, action) => {
     switch (action.type) {
-        case 'SIGN_UP':
-            return { id: action.id, isLoggedIn: true }
         case 'LOG_IN':
-            return { id: action.id, isLoggedIn: true }
+            return { id: action.id, auth_token: action.auth_token, isLoggedIn: true }
         case 'ERROR':
             return { ...state, errors: action.errors }
         case 'LOG_OUT':
