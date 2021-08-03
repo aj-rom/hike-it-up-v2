@@ -15,9 +15,9 @@ const userReducer = (state = initialState, action) => {
             return { ...state, user: action.user, isLoaded: true }
         case "ERROR":
             return { ...state, error: action.error }
-        case "USER_RESET":
+        case "RESET":
         default:
-            return initialState
+            return state
     }
 
 }

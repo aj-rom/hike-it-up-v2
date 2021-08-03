@@ -8,8 +8,9 @@ const accountReducer = ( state = initialState, action) => {
         case 'ERROR':
             return { ...state, errors: action.errors }
         case 'LOG_OUT':
+            return { ...initialState }
         default:
-            return initialState
+            return state
     }
 }
 
