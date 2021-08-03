@@ -37,55 +37,65 @@ export default class TrailInput extends Component {
     render() {
         return (
                 <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Trail Name
-                        <input type='text'
-                               name='name'
-                               onChange={this.handleChange}
-                               value={this.state.name}
-                               required={true}
-                               max={100}
-                               min={3}
-                        />
-                    </label>
-
-                    <label>
-                        Description
-                        <textarea
-                               name='description'
-                               onChange={this.handleChange}
-                               value={this.state.description}
-                               required={true}
-                               maxLength={300}
-                               minLength={15}
-                        />
-                    </label>
-
-                    <div className='grid'>
+                    <article>
+                        <hgroup>
+                            <h3>Basic Information</h3>
+                            <h4>Information regarding the trails name, the hours of operation, and anything else you want to add.</h4>
+                        </hgroup>
                         <label>
-                            Open Time
-                            <input
-                                name='open_at'
-                                type='time'
+                            Trail Name
+                            <input type='text'
+                                   name='name'
+                                   onChange={this.handleChange}
+                                   value={this.state.name}
+                                   required={true}
+                                   max={100}
+                                   min={3}
+                            />
+                        </label>
+
+                        <label>
+                            Description
+                            <textarea
+                                name='description'
                                 onChange={this.handleChange}
-                                value={this.state.open_at}
+                                value={this.state.description}
                                 required={true}
+                                maxLength={300}
+                                minLength={15}
                             />
                         </label>
 
-                        <label>
-                            Close Time
-                            <input
-                                name='close_at'
-                                type='time'
-                                onChange={e => this.handleChange(e)}
-                                value={this.state.close_at}
-                                required={true}
-                            />
-                        </label>
-                    </div>
+                        <div className='grid'>
+                            <label>
+                                Open Time
+                                <input
+                                    name='open_at'
+                                    type='time'
+                                    onChange={this.handleChange}
+                                    value={this.state.open_at}
+                                    required={true}
+                                />
+                            </label>
 
-                    <h4>Address</h4>
+                            <label>
+                                Close Time
+                                <input
+                                    name='close_at'
+                                    type='time'
+                                    onChange={e => this.handleChange(e)}
+                                    value={this.state.close_at}
+                                    required={true}
+                                />
+                            </label>
+                        </div>
+                    </article>
+
+                    <article>
+                        <hgroup>
+                            <h3>Address</h3>
+                            <h4>Information on where to find this trail.</h4>
+                        </hgroup>
 
                         <label>
                             Street
@@ -97,31 +107,31 @@ export default class TrailInput extends Component {
                                 required={true}
                             />
                         </label>
-                    <div className='grid'>
-                        <label>
-                            City
-                            <input
-                                name='city'
-                                type='text'
-                                onChange={this.handleChange}
-                                value={this.state.address.city}
-                                required={true}
-                            />
-                        </label>
+                        <div className='grid'>
+                            <label>
+                                City
+                                <input
+                                    name='city'
+                                    type='text'
+                                    onChange={this.handleChange}
+                                    value={this.state.address.city}
+                                    required={true}
+                                />
+                            </label>
 
-                        <label>
-                            State
-                            <input
-                                name='state'
-                                type='text'
-                                onChange={this.handleChange}
-                                value={this.state.address.state}
-                                required={true}
-                                minLength={2}
-                                maxLength={2}
-                            />
-                        </label>
-                    </div>
+                            <label>
+                                State
+                                <input
+                                    name='state'
+                                    type='text'
+                                    onChange={this.handleChange}
+                                    value={this.state.address.state}
+                                    required={true}
+                                    minLength={2}
+                                    maxLength={2}
+                                />
+                            </label>
+                        </div>
                         <label>
                             Zip Code
                             <input
@@ -134,6 +144,7 @@ export default class TrailInput extends Component {
                                 maxLength={5}
                             />
                         </label>
+                    </article>
 
 
                     <div className='grid'>
