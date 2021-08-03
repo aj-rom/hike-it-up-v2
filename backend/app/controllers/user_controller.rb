@@ -15,6 +15,7 @@ class UserController < ApplicationController
 
     if user.valid_password?(user_params[:password])
       render json: { id: user.id }
+      # render json: { id: user.id, auth_token: user.auth_token }
     else
       render json: { errors: ['Invalid email or password.'] }
     end
