@@ -26,3 +26,9 @@ You can find steps on the installation process [here](https://www.postgresql.org
 
 #### Important
 Check out the seed file for the default user login!
+
+
+### TODO
+* Add authentication token to post/destroy requests
+* Add google maps to TrailInspect
+* Add edit page for owners of trail
