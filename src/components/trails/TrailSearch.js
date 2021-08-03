@@ -3,8 +3,7 @@ import React, { Component } from "react";
 export default class TrailSearch extends Component {
 
     state = {
-        name: '',
-        keyword: '',
+        query: '',
         open_at: '',
         close_at: '',
         state: '',
@@ -13,33 +12,29 @@ export default class TrailSearch extends Component {
     }
 
     handleChange = e => {
-        const { name, value,  } = e.target
+        const { name, value  } = e.target
         this.setState({ [name]: value })
+    }
+
+    handleSearch = e => {
+        e.preventDefault()
+        console.log('SEARCHING ', this.state)
+
     }
 
     render() {
         return (
             <details>
                 <summary>Search</summary>
-                <form id='search-bar'>
-                    <div className='grid'>
-                        <label>Trail Name
-                            <input
-                                name='name'
-                                type='text'
-                                value={this.state.name}
-                                onChange={this.handleChange}
-                            />
-                        </label>
-                        <label>Keyword
-                            <input
-                                name='keyword'
-                                type='text'
-                                value={this.state.keyword}
-                                onChange={this.handleChange}
-                            />
-                        </label>
-                    </div>
+                <form id='search-bar' onSubmit={this.handleSearch}>
+                    <label>Search
+                        <input
+                            name='query'
+                            type='text'
+                            value={this.state.query}
+                            onChange={this.handleChange}
+                        />
+                    </label>
                     <div className='grid'>
                         <label>Open Time
                             <input
