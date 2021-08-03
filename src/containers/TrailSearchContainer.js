@@ -36,7 +36,7 @@ class TrailSearchContainer extends Component {
                     <section>
                         <TrailSearch/>
                     </section>
-                    <section>
+                    <section id='trails'>
                         {this.renderTrails()}
                     </section>
                 </React.Fragment>
