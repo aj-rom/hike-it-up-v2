@@ -2,15 +2,14 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { fetchUser } from "../../actions/userActions";
 import { loading } from "../../shared/loading";
-import {Link} from "react-router-dom";
-import {logOut} from "../../actions/accountActions";
+import { Link } from "react-router-dom";
+import { logOut } from "../../actions/accountActions";
 
 export class UserInfo extends Component {
 
     componentDidMount() {
         this.props.fetchUser(this.props.user_id)
     }
-
 
     handleLogOut = e => {
         e.preventDefault()
@@ -58,7 +57,6 @@ export class UserInfo extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('State for mapping', state)
     return {
         errors: state.userReducer.errors,
         isLoaded: state.userReducer.isLoaded,
