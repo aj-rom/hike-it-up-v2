@@ -1,4 +1,5 @@
 import React from 'react'
+import TrailLocation from "./TrailLocation";
 
 export default function TrailInspect(props) {
     const { trail } = props
@@ -16,11 +17,9 @@ export default function TrailInspect(props) {
                 <p>{trail.description}</p>
             </section>
             <section>
-                <h4>Images</h4>
+                <h4>Location</h4>
+                <TrailLocation address={trail.formatted_address}/>
             </section>
-            <footer>
-                <p>Reviews/Ratings?</p>
-            </footer>
         </article>
     )
 }
