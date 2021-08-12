@@ -10,10 +10,15 @@ const Trail = (props) => {
             <header>
                 <hgroup>
                     <h3>{trail.name}</h3>
-                    <h5>Open {trail.open_at} - {trail.close_at}</h5>
+                    <h5>
+                        Open {trail.open_at} - {trail.close_at}
+                        <br/>
+                        {trail.formatted_address}
+                    </h5>
                 </hgroup>
             </header>
             <p>{trail.description}</p>
+
             <Link to={`/trails/${trail.id}`}>More Info</Link>
         </article>
     )
