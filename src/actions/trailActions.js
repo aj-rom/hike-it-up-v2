@@ -31,9 +31,17 @@ export const createTrail = trail => {
 
 export const fetchTrails = () => {
     return (dispatch) => {
+
+        function handleResponse(json) {
+            if (json.errors) {
+                return dispatch({ type: 'ERROR', errors: json.errors })
+            } else {
+                return dispatch({ type: 'FETCH_TRAILS', trails: json })
+            }
+        }
         return fetch(TRAILS_URL)
-            .then(resp => { return resp.json() })
-            .then(json => dispatch({ type: 'FETCH_TRAILS', trails: json }))
+            .then(resp => resp.json() )
+            .then(json => handleResponse(json))
             .catch(error => handleError(error))
     }
 }
