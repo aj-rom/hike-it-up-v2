@@ -4,7 +4,8 @@ export const addTrail = trail => ({ type: 'ADD_TRAIL', trail: trail })
 export const deleteTrail = id => ({ type: 'DELETE_TRAIL', id: id })
 
 const TRAILS_URL = `${BACKEND_URL}trails`
-export const createTrail = trail => {
+export const createTrail = (trail, auth_token) => {
+    const body = { trail: trail, auth_token: auth_token}
     const config = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},

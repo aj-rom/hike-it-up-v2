@@ -32,7 +32,7 @@ export default class TrailInput extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.createTrail(this.state)
+        this.props.createTrail(this.state, this.props.auth_token)
             .then(e => console.log(e))
             .then(e => this.setState(defaultState))
     }

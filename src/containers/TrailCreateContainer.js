@@ -10,9 +10,13 @@ const TrailCreateContainer = (props) => {
                 <h1>Add a Trail</h1>
                 <h3>Post trails you've been on!</h3>
             </hgroup>
-            <TrailInput createTrail={props.createTrail}/>
+            <TrailInput auth_token={props.auth_token} createTrail={props.createTrail}/>
         </React.Fragment>
     )
 }
 
-export default connect( null, ({ createTrail }))(TrailCreateContainer)
+const mapStateToProps = (state) => ({
+    auth_token: state.accountReducer.auth_token
+})
+
+export default connect( mapStateToProps, ({ createTrail }))(TrailCreateContainer)
