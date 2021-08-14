@@ -10,7 +10,7 @@ const defaultState = {
         street: '',
         city: '',
         state: '',
-        zipcode: null
+        zipcode: undefined
     }
 }
 
@@ -23,12 +23,15 @@ export default class TrailInput extends Component {
 
     handleChange = e => {
         const { name, value } = e.target
-        this.setState({ ...this.state, [name]: value })
+        if (Object.keys(defaultState).includes(name)) {
+            this.setState({ ...this.state, [name]: value })
+        } else {
+            this.setState({ ...this.state, address: { ...this.state.address, [name]: value }})
+        }
     }
 
     handleSubmit = e => {
         e.preventDefault()
-        // TODO : HANDLE ERRORS
         this.props.createTrail(this.state)
             .then(e => console.log(e))
             .then(e => this.setState(defaultState))
