@@ -6,11 +6,11 @@ const defaultState = {
     description: '',
     open_at: '',
     close_at: '',
-    address: {
+    address_attributes: {
         street: '',
         city: '',
         state: '',
-        zipcode: undefined
+        zipcode: ''
     }
 }
 
@@ -26,15 +26,15 @@ export default class TrailInput extends Component {
         if (Object.keys(defaultState).includes(name)) {
             this.setState({ ...this.state, [name]: value })
         } else {
-            this.setState({ ...this.state, address: { ...this.state.address, [name]: value }})
+            this.setState({ ...this.state, address_attributes: { ...this.state.address_attributes, [name]: value }})
         }
     }
 
     handleSubmit = e => {
         e.preventDefault()
         this.props.createTrail(this.state, this.props.auth_token)
-            .then(e => console.log(e))
             .then(e => this.setState(defaultState))
+            .then(alert('Trail created!'))
     }
 
     render() {
@@ -106,7 +106,7 @@ export default class TrailInput extends Component {
                                 name='street'
                                 type='text'
                                 onChange={this.handleChange}
-                                value={this.state.address.street}
+                                value={this.state.address_attributes.street}
                                 required={true}
                             />
                         </label>
@@ -117,8 +117,9 @@ export default class TrailInput extends Component {
                                     name='city'
                                     type='text'
                                     onChange={this.handleChange}
-                                    value={this.state.address.city}
+                                    value={this.state.address_attributes.city}
                                     required={true}
+                                    minLength={2}
                                 />
                             </label>
 
@@ -128,7 +129,7 @@ export default class TrailInput extends Component {
                                     name='state'
                                     type='text'
                                     onChange={this.handleChange}
-                                    value={this.state.address.state}
+                                    value={this.state.address_attributes.state}
                                     required={true}
                                     minLength={2}
                                     maxLength={2}
@@ -141,10 +142,10 @@ export default class TrailInput extends Component {
                                 name='zipcode'
                                 type='number'
                                 onChange={this.handleChange}
-                                value={this.state.address.zipcode}
+                                value={this.state.address_attributes.zipcode}
                                 required={true}
-                                minLength={5}
-                                maxLength={5}
+                                min={10000}
+                                max={99999}
                             />
                         </label>
                     </article>
