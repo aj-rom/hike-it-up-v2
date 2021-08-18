@@ -5,11 +5,12 @@ export const deleteTrail = id => ({ type: 'DELETE_TRAIL', id: id })
 
 const TRAILS_URL = `${BACKEND_URL}trails`
 export const createTrail = (trail, auth_token) => {
+    delete trail.errors
     const body = { trail: trail, auth_token: auth_token}
     const config = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify(trail)
+        body: JSON.stringify(body)
     }
 
     return (dispatch) => {
