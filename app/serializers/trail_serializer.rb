@@ -20,9 +20,10 @@ class TrailSerializer < ApplicationSerializer
   class << self
     def convert_time(time_string)
       time = time_string.split(':')
-      return "#{time_string} AM" if time.first.to_i <= 12
+      first = time.first.to_i
+      return "#{time_string} AM" if first <= 12
 
-      "#{time.first.to_i - 12}:#{time.last} PM"
+      "#{first - 12}:#{time.last} PM"
     end
   end
 end
