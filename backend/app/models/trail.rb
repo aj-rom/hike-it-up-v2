@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Trail < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  has_one :address
+  belongs_to :user
+  has_one :address, dependent: :destroy
+  accepts_nested_attributes_for :address
 
   # Check for presence of attributes
   validates_presence_of :name, :description, :open_at, :close_at, :address
