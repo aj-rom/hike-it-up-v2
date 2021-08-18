@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :trails
+  has_many :trails, dependent: :destroy
 
   validates :email, email: true
 
