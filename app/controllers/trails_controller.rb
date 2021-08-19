@@ -16,7 +16,6 @@ class TrailsController < ApplicationController
     if trail.save
       serialize trail
     else
-      puts "Creation failed..."
       render json: trail.errors.full_messages
     end
   end
