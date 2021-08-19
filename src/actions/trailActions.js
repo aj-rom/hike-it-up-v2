@@ -3,20 +3,15 @@ export const addTrail = trail => ({ type: 'ADD_TRAIL', trail: trail })
 
 export const editTrail = (trail, auth_token) => ({ type: 'EDIT_TRAIL', trail: trail })
 export const deleteTrail = (trail, auth_token) => {
-
-    console.log('Deleeting Trail')
     const body = { trail: trail, auth_token: auth_token }
     const header = getHeader('DELETE', body)
 
     return (dispatch) => {
         function handleResponse(resp) {
             if (resp._status === 200) {
-                alert('Success, trail has been deleted from backend.')
                 dispatch({ type: 'DELETE_TRAIL', id: resp.trail.id })
 
             } else {
-                alert('Failed to delete! Check console for response.')
-                console.log('Failed Response', resp)
                 dispatch({ type: 'ERROR', errors: resp })
             }
         }

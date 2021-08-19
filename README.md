@@ -29,7 +29,6 @@ Check out the seed file for the default user login!
 
 
 ### TODO
-* Add destroy button for trail owners (frontend)
 * Add edit page for owners of trail (frontend)
   * Handle auth-token and update (backend)
 * HOST TO HEROKU
