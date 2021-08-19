@@ -18,7 +18,7 @@ const trailsReducer = (state = initialState, action) => {
             return { ...state, trail: state.trail, isLoaded: false }
         case 'FETCH_TRAIL':
             return { ...state, trail: action.trail, isLoaded: true, errors: []}
-        case 'TRAIL_ERROR':
+        case 'ERROR':
             return { ...state, errors: action.errors, isLoaded: false }
         default:
             return state
