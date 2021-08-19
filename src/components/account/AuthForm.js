@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
-import {ErrorField} from "./ErrorField";
+import {ErrorField} from "../ErrorField";
 
 class AuthForm extends Component {
 

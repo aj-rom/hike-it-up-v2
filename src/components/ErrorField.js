@@ -4,7 +4,7 @@ export const ErrorField = (props) => {
     const { errors } = props
     return (
         <ul id='errors'>
-            {errors.map(e => <li>{e}</li>)}
+            {errors.map((e, idx) => <li key={idx}>{e}</li>)}
         </ul>
     )
 }
