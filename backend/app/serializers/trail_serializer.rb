@@ -1,5 +1,5 @@
 class TrailSerializer < ApplicationSerializer
-  attributes :id, :name, :description, :address
+  attributes :id, :name, :description, :address, :user_id
   set_type :trail
 
   attribute :open_at do |obj|
