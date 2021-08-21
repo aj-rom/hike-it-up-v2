@@ -8,6 +8,7 @@ import TrailCreateContainer from "./TrailCreateContainer";
 import LogInContainer from "./LogInContainer";
 import SignUpContainer from "./SignUpContainer";
 import {connect} from "react-redux";
+import TrailEditContainer from "./TrailEditContainer";
 
 class RouteContainer extends Component {
 
@@ -44,6 +45,9 @@ class RouteContainer extends Component {
                 </Route>
                 <Route exact path="/trails/:id">
                     <TrailInspectContainer/>
+                </Route>
+                <Route exact path="/trails/:id/edit">
+                    { this.redirectToIfNotLogged(isLoggedIn, `/trails`, <TrailEditContainer/>)}
                 </Route>
                 <Route exact path="/">
                     <Home/>
