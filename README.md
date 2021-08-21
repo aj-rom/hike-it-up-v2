@@ -27,9 +27,8 @@ You can find steps on the installation process [here](https://www.postgresql.org
 #### Important
 Check out the seed file for the default user login!
 
-
 ### TODO
-* Add edit page for owners of trail (frontend)
-  * Handle auth-token and update (backend)
+* Add Search functionality on main trails page 
+  * Either hit the backend or filter from application state
 * HOST TO HEROKU
 * Finish :)
