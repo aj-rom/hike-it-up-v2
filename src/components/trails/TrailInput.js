@@ -18,7 +18,12 @@ const defaultState = {
 class TrailInput extends Component {
     constructor(props) {
         super(props);
-        this.state = defaultState
+        if (props.trail) {
+            this.state = props.trail
+        }
+        else {
+            this.state = defaultState
+        }
     }
 
     handleChange = e => {
@@ -33,13 +38,17 @@ class TrailInput extends Component {
     handleSubmit = e => {
         e.preventDefault()
         this.props.createTrail(this.state, this.props.auth_token)
-            .then(e => {
-                if (this.props.errors.length === 0) {
-                    this.setState(defaultState)
-                    alert('Trail created.')
-                    // TODO : Redirect to the newly created trail page
-                }
-            })
+        if (this.props.errors.length === 0) {
+            alert('Success')
+            this.setState(defaultState)
+        }
+            // .then(e => {
+            //     if (this.props.errors.length === 0) {
+            //         this.setState(defaultState)
+            //         alert('Trail created.')
+            //         // TODO : Redirect to the newly created trail page
+            //     }
+            // })
     }
 
     errorField() {
@@ -165,7 +174,7 @@ class TrailInput extends Component {
 
                 <div className='grid'>
                     <br/>
-                    <input type='submit' value='Create Trail'/>
+                    <input type='submit' value={this.props.submitValue}/>
                     <br/>
                 </div>
             </form>
