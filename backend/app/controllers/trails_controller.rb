@@ -16,7 +16,7 @@ class TrailsController < ApplicationController
     if trail.save
       serialize trail
     else
-      render json: trail.errors.full_messages
+      render json: { error: [trail.errors.full_messages] }
     end
   end
 
@@ -28,7 +28,14 @@ class TrailsController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    @trail.update(trail_params)
+    if @trail.save
+      serialize @trail
+    else
+      render json: @trail.errors.full_messages
+    end
+  end
 
   private
 
@@ -37,17 +44,13 @@ class TrailsController < ApplicationController
   end
 
   def find_trail
-    puts "Finding trail"
     @trail = Trail.find_by(id: params[:id])
     render json: { error: 'Trail not found!' }, statues: 404 unless @trail
-    puts "Trail found"
   end
 
   def validate_user
-    puts "Finding User"
     @user = User.find_by(auth_token: auth_params)
-    render json: { error: ['Invalid credentials.'] }, status: 402 unless @user
-    puts "User found!"
+    render json: { error: ['Invalid credentials.'] }, status: 401 unless @user
   end
 
   def auth_params
@@ -56,7 +59,7 @@ class TrailsController < ApplicationController
 
   def trail_params
     params.require(:trail)
-          .permit(:name, :description, :open_at, :close_at, address_attributes: %i[street city state zipcode])
+          .permit(:id, :user_id, :name, :description, :open_at, :close_at, address_attributes: %i[id street city state zipcode trail_id])
   end
 
 end
