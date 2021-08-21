@@ -10,7 +10,7 @@ const TrailCreateContainer = (props) => {
                 <h1>Add a Trail</h1>
                 <h3>Post trails you've been on!</h3>
             </hgroup>
-            <TrailInput auth_token={props.auth_token} createTrail={props.createTrail}/>
+            <TrailInput auth_token={props.auth_token} createTrail={props.createTrail} submitValue='Create Trail'/>
         </React.Fragment>
     )
 }
