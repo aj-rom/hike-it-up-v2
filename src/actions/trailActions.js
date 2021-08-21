@@ -1,7 +1,28 @@
 import {BACKEND_URL, getHeader, handleError} from "../shared/constants";
+const TRAILS_URL = `${BACKEND_URL}trails/`
 export const addTrail = trail => ({ type: 'ADD_TRAIL', trail: trail })
 
-export const editTrail = (trail, auth_token) => ({ type: 'EDIT_TRAIL', trail: trail })
+export const editTrail = (trail, auth_token) => {
+
+    const body = { trail: trail, auth_token: auth_token }
+    const header = getHeader('PATCH', body)
+
+    return (dispatch) => {
+        function handleResponse(resp) {
+            if (resp.id !== undefined) {
+                dispatch({ type: 'UPDATE_TRAIL', trail: resp })
+            } else {
+                dispatch({ type: 'ERROR', errors: resp })
+            }
+        }
+
+        fetch(TRAILS_URL + trail.id, header)
+            .then(resp => resp.json())
+            .then(resp => handleResponse(resp))
+            .catch(e => handleError(e))
+    }
+}
+
 export const deleteTrail = (trail, auth_token) => {
     const body = { trail: trail, auth_token: auth_token }
     const header = getHeader('DELETE', body)
@@ -16,13 +37,14 @@ export const deleteTrail = (trail, auth_token) => {
             }
         }
 
-        fetch(`${BACKEND_URL}trails/${trail.id}`, header)
+        fetch(TRAILS_URL + trail.id, header)
             .then(resp => resp.json())
             .then(resp => handleResponse(resp))
+            .catch(e => handleError(e))
     }
 }
 
-const TRAILS_URL = `${BACKEND_URL}trails`
+
 export const createTrail = (trail, auth_token) => {
     delete trail.errors
     const body = { trail: trail, auth_token: auth_token}
@@ -48,7 +70,6 @@ export const createTrail = (trail, auth_token) => {
 
 export const fetchTrails = () => {
     return (dispatch) => {
-
         function handleResponse(json) {
             if (json.errors) {
                 return dispatch({ type: 'ERROR', errors: json.errors })
@@ -63,8 +84,6 @@ export const fetchTrails = () => {
     }
 }
 
-const TRAIL_URL = BACKEND_URL + 'trails/'
-
 export const fetchTrail = id => {
     return dispatch => {
         function handleResponse(json) {
@@ -76,7 +95,7 @@ export const fetchTrail = id => {
             }
         }
 
-        return fetch(TRAIL_URL + id)
+        return fetch(TRAILS_URL + id)
             .then(resp => resp.json())
             .then(json => handleResponse(json))
             .catch(error => handleError(error))
