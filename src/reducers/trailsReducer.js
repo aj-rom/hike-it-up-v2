@@ -18,6 +18,14 @@ const trailsReducer = (state = initialState, action) => {
             return { ...state, trail: state.trail, isLoaded: false }
         case 'FETCH_TRAIL':
             return { ...state, trail: action.trail, isLoaded: true, errors: []}
+        case 'UPDATE_TRAIL':
+            for (let idx in state.trails) {
+                if (state.trails[idx].id === action.trail.id) {
+                    state.trails[idx] = action.trail
+                    break;
+                }
+            }
+            return { ...state, trails: state.trails, trail: action.trail, isLoaded: true, errors: []}
         case 'ERROR':
             return { ...state, errors: action.errors, isLoaded: false }
         default:
