@@ -17,6 +17,8 @@ class TrailSerializer < ApplicationSerializer
     "#{obj.street}, #{obj.city}, #{obj.state} #{obj.zipcode}"
   end
 
+  attribute :address_attributes, &:address
+
   class << self
     def convert_time(time_string)
       time = time_string.split(':')
