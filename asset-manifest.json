@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/hike-it-up-v2/static/js/main.2e47d973.chunk.js",
-    "main.js.map": "/hike-it-up-v2/static/js/main.2e47d973.chunk.js.map",
+    "main.js": "/hike-it-up-v2/static/js/main.4290c463.chunk.js",
+    "main.js.map": "/hike-it-up-v2/static/js/main.4290c463.chunk.js.map",
     "runtime-main.js": "/hike-it-up-v2/static/js/runtime-main.167d0ea4.js",
     "runtime-main.js.map": "/hike-it-up-v2/static/js/runtime-main.167d0ea4.js.map",
     "static/js/2.35b2993d.chunk.js": "/hike-it-up-v2/static/js/2.35b2993d.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.167d0ea4.js",
     "static/js/2.35b2993d.chunk.js",
-    "static/js/main.2e47d973.chunk.js"
+    "static/js/main.4290c463.chunk.js"
   ]
 }
