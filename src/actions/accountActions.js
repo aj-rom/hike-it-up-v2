@@ -1,14 +1,10 @@
-import {BACKEND_URL, handleError} from "../shared/constants";
+import {BACKEND_URL, getHeader, handleError} from "../shared/constants";
 
 export const logOut = () => ({ type: 'LOG_OUT'})
 
 export const authenticate = (data) => {
     const user = { user: data }
-    const config = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify(user)
-    }
+    const config = getHeader('POST', user)
 
     return (dispatch) => {
         function handleResponse(resp) {
