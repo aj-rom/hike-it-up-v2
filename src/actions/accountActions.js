@@ -21,6 +21,26 @@ export const authenticate = (data) => {
             .catch(e => handleError(e))
     }
 }
+
+export const signUp = (data) => {
+    const user = { user: data }
+    const header = getHeader('POST', user)
+
+    return (dispatch) => {
+        function handleResponse(resp) {
+            if (resp.errors) {
+                dispatch({ type: 'ERROR', errors: resp.errors})
+            } else {
+                dispatch({ type: 'LOG_IN',  id: resp.id, auth_token: resp.auth_token })
+            }
+        }
+
+        return fetch(`${BACKEND_URL}sign_up`, header)
+            .then(e => e.json())
+            .then(e => handleResponse(e))
+            .catch(e => handleError(e))
+    }
+}
 export const deleteUser = (id) => {
     return dispatch => {
     //    Remove the user
