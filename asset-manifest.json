@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/hike-it-up-v2/static/js/main.2c338f85.chunk.js",
-    "main.js.map": "/hike-it-up-v2/static/js/main.2c338f85.chunk.js.map",
+    "main.js": "/hike-it-up-v2/static/js/main.68d20ea4.chunk.js",
+    "main.js.map": "/hike-it-up-v2/static/js/main.68d20ea4.chunk.js.map",
     "runtime-main.js": "/hike-it-up-v2/static/js/runtime-main.167d0ea4.js",
     "runtime-main.js.map": "/hike-it-up-v2/static/js/runtime-main.167d0ea4.js.map",
-    "static/js/2.eba1c533.chunk.js": "/hike-it-up-v2/static/js/2.eba1c533.chunk.js",
-    "static/js/2.eba1c533.chunk.js.map": "/hike-it-up-v2/static/js/2.eba1c533.chunk.js.map",
+    "static/js/2.35b2993d.chunk.js": "/hike-it-up-v2/static/js/2.35b2993d.chunk.js",
+    "static/js/2.35b2993d.chunk.js.map": "/hike-it-up-v2/static/js/2.35b2993d.chunk.js.map",
     "index.html": "/hike-it-up-v2/index.html",
-    "static/js/2.eba1c533.chunk.js.LICENSE.txt": "/hike-it-up-v2/static/js/2.eba1c533.chunk.js.LICENSE.txt"
+    "static/js/2.35b2993d.chunk.js.LICENSE.txt": "/hike-it-up-v2/static/js/2.35b2993d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.167d0ea4.js",
-    "static/js/2.eba1c533.chunk.js",
-    "static/js/main.2c338f85.chunk.js"
+    "static/js/2.35b2993d.chunk.js",
+    "static/js/main.68d20ea4.chunk.js"
   ]
 }
