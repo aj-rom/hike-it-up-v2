@@ -36,5 +36,11 @@ module Backend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    initializer "devise.configure_zeitwerk_if_enabled" do
+      if Rails.autoloaders.zeitwerk_enabled? && !defined?(ActionMailer)
+        Rails.autoloaders.main.ignore("#{__dir__}/app/mailers/devise/mailer.rb")
+      end
+    end
   end
 end
