@@ -2,6 +2,8 @@
 
 import React from 'react'
 import FrameWorkTable from "./about/FrameWorkTable";
+import Development from "./about/Development";
+import Motivation from "./about/Motivation";
 
 export default function About() {
     return (
@@ -11,20 +13,8 @@ export default function About() {
                 <h4>A little bit about this project.</h4>
             </hgroup>
             <section>
-                <article className='grid'>
-                    <section>
-                        <h5>My Motivation</h5>
-                        <p>A little bit about <i>why</i> I wanted to rebuild and create <code>hike-it-up</code> in the first place.</p>
-                    </section>
-                    <section>
-                        <h5>Development Process</h5>
-                        <p>Maybe go over the development process.</p>
-                        <ul>
-                            <li>And touch on some features</li>
-                            <li>or link to somewhere</li>
-                        </ul>
-                    </section>
-                </article>
+                <Motivation/>
+                <Development/>
             </section>
             <FrameWorkTable/>
         </section>
