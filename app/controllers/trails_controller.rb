@@ -40,12 +40,13 @@ class TrailsController < ApplicationController
   private
 
   def serialize(trail)
-    render json: TrailSerializer.new(trail).to_h
+    trail = TrailSerializer.new(trail)
+    render json: trail.to_h
   end
 
   def find_trail
     @trail = Trail.find_by(id: params[:id])
-    render json: { error: 'Trail not found!' }, statues: 404 unless @trail
+    render json: { error: 'Trail not found!' }, status: 404 unless @trail
   end
 
   def validate_user

@@ -31,7 +31,7 @@ class UserController < ApplicationController
 
   private
 
-  def render_json user
+  def render_json(user)
     render json: UserSerializer.new(user).to_h
   end
 
