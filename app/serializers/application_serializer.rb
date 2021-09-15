@@ -1,23 +1,25 @@
 class ApplicationSerializer
-  include FastJsonapi::ObjectSerializer
+  include JSONAPI::Serializer
 
   def to_h
     data = serializable_hash
-    case data[:data]
-    when Hash
+
+    if data[:data].is_a? Hash
       data[:data][:attributes]
-    when Array
-      data[:data].map { |x| x[:attributes] }
-    when nil
+
+    elsif data[:data].is_a? Array
+      data[:data].map{ |x| x[:attributes] }
+
+    elsif data[:data] == nil
       nil
+
     else
       data
     end
   end
 
   class << self
-
-    def has_(resource, options = {})
+    def has_one(resource, options = {})
       serializer = options[:serializer] || "#{resource.to_s.classify}Serializer".constantize
 
       attribute resource do |object|
@@ -25,12 +27,12 @@ class ApplicationSerializer
       end
     end
 
-    def has_one(resource, options = {})
-      has_(resource, options)
-    end
-
     def has_many(resources, options = {})
-      has_(resources, options)
+      serializer = options[:serializer] || "#{resources.to_s.classify}Serializer".constantize
+
+      attribute resources do |object|
+        serializer.new(object.try(resources)).to_h
+      end
     end
   end
 end
