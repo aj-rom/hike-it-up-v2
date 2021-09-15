@@ -41,8 +41,3 @@ export const signUp = (data) => {
             .catch(e => handleError(e))
     }
 }
-export const deleteUser = (id) => {
-    return dispatch => {
-    //    Remove the user
-    }
-}

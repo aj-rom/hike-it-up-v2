@@ -2,14 +2,21 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import UserInfo from "../components/account/UserInfo";
 import { Link } from "react-router-dom";
-import {fetchUser} from "../actions/userActions";
+import { deleteUser, fetchUser } from "../actions/userActions";
+import {logOut} from "../actions/accountActions";
 
 class AccountContainer extends Component {
 
     render() {
         const { isLoggedIn } = this.props
         if (isLoggedIn) {
-            return <UserInfo user_id={this.props.id} fetchUser={this.props.fetchUser}/>
+            return <UserInfo
+                user_id={this.props.id}
+                logOut={this.props.logOut}
+                fetchUser={this.props.fetchUser}
+                deleteUser={this.props.deleteUser}
+                auth_token={this.props.auth_token}
+            />
         } else {
             return (
                 <article>
@@ -27,7 +34,8 @@ class AccountContainer extends Component {
 
 const mapStateToProps = (state) => ({
     isLoggedIn: state.accountReducer.isLoggedIn,
-    id: state.accountReducer.id
+    id: state.accountReducer.id,
+    auth_token: state.accountReducer.auth_token
 })
 
-export default connect(mapStateToProps, { fetchUser })(AccountContainer)
+export default connect(mapStateToProps, { fetchUser, deleteUser, logOut })(AccountContainer)

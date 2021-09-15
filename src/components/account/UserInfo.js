@@ -23,7 +23,9 @@ export class UserInfo extends Component {
 
     handleDeleteAccount = e => {
         e.preventDefault()
-        // return this.props.deleteAccount
+
+        const user = { id: this.props.user_id, auth_token: this.props.auth_token }
+        this.props.deleteUser(user)
         alert('You have successfully deleted your account.')
     }
 

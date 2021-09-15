@@ -6,6 +6,7 @@ const accountReducer = ( state = initialState, action) => {
         case 'ERROR':
             return { ...state, errors: action.errors }
         case 'LOG_OUT':
+            localStorage.clear()
             return { ...initialState }
         default:
             return state
