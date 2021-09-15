@@ -12,6 +12,7 @@ class TrailsController < ApplicationController
   end
 
   def create
+    validate_user
     trail = @user.trails.create(trail_params)
     if trail.save
       serialize trail
@@ -21,6 +22,7 @@ class TrailsController < ApplicationController
   end
 
   def destroy
+    validate_user
     if @user.id == @trail.user_id
       @trail.destroy
     else
@@ -29,6 +31,7 @@ class TrailsController < ApplicationController
   end
 
   def update
+    validate_user
     @trail.update(trail_params)
     if @trail.save
       serialize @trail
