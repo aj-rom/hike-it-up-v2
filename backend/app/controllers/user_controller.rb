@@ -29,10 +29,24 @@ class UserController < ApplicationController
     end
   end
 
+  def destroy
+    validate_user
+    @user.destroy
+  end
+
   private
 
   def render_json(user)
     render json: UserSerializer.new(user).to_h
+  end
+
+  def validate_user
+    @user = User.find_by(auth_token: auth_params)
+    render json: { error: ['Invalid credentials.'] }, status: 401 unless @user
+  end
+
+  def auth_params
+    params.require(:auth_token)
   end
 
   def user_params
