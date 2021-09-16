@@ -2,7 +2,7 @@ import {BACKEND_URL, getHeader, handleError} from "../shared/constants";
 const TRAILS_URL = `${BACKEND_URL}trails/`
 export const addTrail = trail => ({ type: 'ADD_TRAIL', trail: trail })
 
-export const editTrail = (trail, auth_token) => {
+export const editTrail = (trail, auth_token, callback) => {
 
     const body = { trail: trail, auth_token: auth_token }
     const header = getHeader('PATCH', body)
@@ -11,6 +11,7 @@ export const editTrail = (trail, auth_token) => {
         function handleResponse(resp) {
             if (resp.id !== undefined) {
                 dispatch({ type: 'UPDATE_TRAIL', trail: resp })
+                callback(resp.id)
             } else {
                 dispatch({ type: 'ERROR', errors: resp })
             }
@@ -31,7 +32,6 @@ export const deleteTrail = (trail, auth_token) => {
         function handleResponse(resp) {
             if (resp._status === 200) {
                 dispatch({ type: 'DELETE_TRAIL', id: resp.trail.id })
-
             } else {
                 dispatch({ type: 'ERROR', errors: resp })
             }
@@ -44,8 +44,7 @@ export const deleteTrail = (trail, auth_token) => {
     }
 }
 
-
-export const createTrail = (trail, auth_token) => {
+export const createTrail = (trail, auth_token, callback) => {
     delete trail.errors
     const body = { trail: trail, auth_token: auth_token}
     const header = getHeader('POST', body)
@@ -54,15 +53,16 @@ export const createTrail = (trail, auth_token) => {
 
         function handleResponse(resp) {
             if (resp.id === undefined) {
-                dispatch({ type: 'ERROR', errors: resp })
+                dispatch({ type: 'ERROR', errors: resp.error })
             }
             else {
                 dispatch({ type: 'ADD_TRAIL', trail: resp })
+                callback(resp.id)
             }
         }
 
         return fetch(TRAILS_URL, header)
-            .then(resp => { return resp.json() })
+            .then(resp => resp.json())
             .then(resp => handleResponse(resp))
             .catch(error => handleError(error))
     }

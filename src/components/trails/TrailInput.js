@@ -37,18 +37,11 @@ class TrailInput extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.createTrail(this.state, this.props.auth_token)
-        if (this.props.errors.length === 0) {
-            alert('Success')
+        this.props.createTrail(this.state, this.props.auth_token, (trailID) => {
+            console.log('Trail Created At:', `http://localhost/3000/trails/${trailID}`)
+            this.props.history.push(`/trails/${trailID}`)
             this.setState(defaultState)
-        }
-            // .then(e => {
-            //     if (this.props.errors.length === 0) {
-            //         this.setState(defaultState)
-            //         alert('Trail created.')
-            //         // TODO : Redirect to the newly created trail page
-            //     }
-            // })
+        })
     }
 
     errorField() {
