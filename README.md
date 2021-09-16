@@ -1,24 +1,32 @@
-# README
+# Hike-It-Up-V2 (The Backend)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This contains all of the information regarding the production backend server hosted on [Heroku](heroku.com).
 
 Things you may want to cover:
 
-* Ruby version
+## Ruby Version
 
-* System dependencies
+[Ruby 3.0.0]() was used for this to get the latest and greatest security features as well as stable releases with new optimized gems. Too install on your system, you can either use the [Ruby Installer](https://rubyinstaller.org/) paired with a compatible IDE (like [RubyMine](https://www.jetbrains.com/ruby/)) or go ahead and use a *Ruby Version Managment* system. Some of the most popular ones are: 
+- [RVM](https://rvm.io/)
+- [chruby](https://github.com/postmodern/chruby)
+- [rbenv](https://github.com/rbenv/rbenv)
 
-* Configuration
+## System dependencies
+Macintosh or Linux are the suggested build enviroments. If you are on a Windows machine, please use [WSL (Windows Subsytem for Linux)](https://ubuntu.com/wsl).
 
-* Database creation
+**WSL will be required to load PostgreSQL if you are on a Windows machine**
 
-* Database initialization
+## Configuration
+TODO
 
-* How to run the test suite
+## Database creation
+TODO
 
-* Services (job queues, cache servers, search engines, etc.)
+## Database initialization
+TODO
 
-* Deployment instructions
+## How to run the test suite
+TODO
 
-* ...
+## Deployment instructions
+TODO -> local & heroku
