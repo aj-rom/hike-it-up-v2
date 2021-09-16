@@ -10,7 +10,7 @@ const Motivation = () => (
         <summary className='grid'>
             <p>
                 I first created <HikeItUpLink/> as a basic sinatra application.
-                After progressing a long way through <FlatIronLink/>
+                After progressing a long way through <FlatIronLink/>,
                 I wanted to test my knowledge by utilizing <b>React & Redux</b>,
                 as well as <b>Ruby on Rails</b> to build a functional web application.
                 <br/><br/>
