@@ -6,7 +6,7 @@ The reincarnation of [hike-it-up](https://hike-it-up.herokuapp.com), a simple si
 ### Requirements
 
 #### Ruby Version & Gem Requirements
-Ruby version **2.6.1** is required to run this application.
+Ruby version **3.0.0** is required to run this application.
 And must have the [bundler](https://bundler.io/) gem installed.
 
 #### PostgreSQL
@@ -28,9 +28,6 @@ You can find steps on the installation process [here](https://www.postgresql.org
 Check out the seed file for the default user login!
 
 ### TODO
-* Update Ruby version to 3.0.0
-* Allow users to delete their account
 * Add Search functionality on main trails page 
   * Either hit the backend or filter from application state
-* Add [redux-storage](https://www.npmjs.com/package/redux-storage) & [redux-persist](https://www.npmjs.com/package/redux-persist)
 * Finish :)
