@@ -33,9 +33,9 @@ class TrailSearchContainer extends Component {
                         <h2>All Trails</h2>
                         <h4>View and Search all Trails</h4>
                     </hgroup>
-                    {/*<section>*/}
-                    {/*    <TrailSearch/>*/}
-                    {/*</section>*/}
+                    <section>
+                        <TrailSearch/>
+                    </section>
                     <section id='trails'>
                         {this.renderTrails()}
                     </section>
